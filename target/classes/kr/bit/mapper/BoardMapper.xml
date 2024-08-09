@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="kr.bit.mapper.BoardMapper">
+
+ <sql id="search">
+    <if test="type=='writer'">
+       where writer like concat('%',#{keyword},'%')
+    </if>
+    <if test="type=='title'">
+       where title like concat('%',#{keyword},'%')
+    </if>
+    <if test="type=='content'">
+       where content like concat('%',#{keyword},'%')
+    </if>
+  </sql>
+
+
+  <select id="getList" parameterType="kr.bit.entity.Criteria" resultType="kr.bit.entity.Board">
+  	select * from board
+  	order by boardGroup desc, boardSequence asc
+    limit #{pageStart},#{perPageNum} 
+  </select>
+  
+  <insert id="insert" parameterType="kr.bit.entity.Board">
+     insert into 
+     tblBoard(idx,memID,title,content,writer,boardGroup,boardSequence,boardLevel,boardAvailable)
+		     select IFNULL(MAX(idx)+1, 1),#{memID},#{title},#{content},#{writer},
+		            IFNULL(MAX(boardGroup)+1, 0),0,0,1 
+		     from tblBoard
+  </insert>
+  
+  <insert id="insertSelectKey" parameterType="kr.bit.entity.Board">
+  	<selectKey keyProperty="idx,boardGroup" resultType="kr.bit.entity.Board" order="BEFORE">
+  		select IFNULL(MAX(idx)+1, 1) as idx, IFNULL(MAX(idx)+1, 0) as boardGroup
+  		from board
+  	 </selectKey>
+  	insert into 
+    tblBoard(idx, memID, title, content, writer, boardGroup, boardSequence, boardLevel, boardAvailable)
+	values(#{idx}, #{memID},#{title}, #{content}, #{writer},#{boardGroup},0,0,1)
+  </insert>
+  
+  <select id="login" parameterType="kr.bit.entity.Member" resultType="kr.bit.entity.Member">
+  	select * from tblMember where memID=#{memID} and memPwd=#{memPwd}
+  </select>
+  
+  
+  <select id="read" parameterType="int" resultType="kr.bit.entity.Board">
+  select * from board 
+  where idx=#{idx}
+  
+  </select>
+  
+  <update id="delete" parameterType="int">
+  	update board set boardAvailable=0 where idx=#{idx}
+  </update>
+  
+  <update id="update" parameterType="kr.bit.entity.Board">
+  	update board set title=#{title}, content=#{content}
+  	where idx=#{idx} 
+  </update>
+  
+  <update id="boardCount" parameterType="kr.bit.entity.Board">
+  	update board set count= #{count}+1
+  	where idx=#{idx}
+  </update>
+  
+   <update id="replySeqUpdate" parameterType="kr.bit.entity.Board">
+  	update board set boardSequence=boardSequence+1
+  	where boardGroup=#{boardGroup} and boardSequence > #{boardSequence}
+  	
+  </update>
+  
+  <insert id="replyInsert" parameterType="kr.bit.entity.Board">
+     <selectKey keyProperty="idx" resultType="kr.bit.entity.Board" order="BEFORE">
+        select IFNULL(max(idx)+1, 1) as idx from tblBoard      
+     </selectKey>     
+     insert into 
+     tblBoard(idx,memID,title,content,writer,boardGroup,boardSequence,boardLevel,boardAvailable)
+	 values(#{idx},#{memID},#{title},#{content},#{writer},#{boardGroup},#{boardSequence},#{boardLevel},1)
+  </insert>
+  
+  <select id="totalCount" resultType="int" parameterType="kr.bit.entity.Criteria">
+    select count(*) from board
+  </select>
+
+
+</mapper>
