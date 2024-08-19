@@ -9,30 +9,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
     	if(${!empty msgType}){
-     		$("#messageType").attr("class", "modal-content panel-warning");    
+     		$("#messageType").attr("class", "alert alert-success");    
     		$("#myMessage").modal("show");
     	}
     });
     function registerCheck(){
        var memID=$("#memID").val();
        $.ajax({
-    	   url : "${contextPath}/memRegisterCheck.do",
+    	   url : "${contextPath}/member/memRegisterCheck.do",
     	   type : "get",
     	   data : { "memID" : memID},
     	   success : function(result){
-    		   // 중복유무 출력(result=1 : 사용할수있는 아이디, 0 : 사용할수없는 아이디)
     		   if(result==1){
     			  $("#checkMessage").html("사용할 수 있는 아이디입니다.");
-    			  $("#checkType").attr("class","modal-content panel-success");
     		   }else{
     			  $("#checkMessage").html("사용할 수 없는 아이디입니다."); 
-    			  $("#checkType").attr("class","modal-content panel-warning");
     		   }
     		   $("#myModal").modal("show");
     	   },    	   
@@ -129,5 +126,32 @@
   <footer>
 	 <jsp:include page="../common/footer.jsp"></jsp:include>
   </footer>
+  
+	<!--  다이얼로그창(모달) -->
+	<!-- Modal -->
+	 <div class="modal" id="myModal">
+	  <div class="modal-dialog">
+	    <div id="checkType" class="modal-content">
+	
+	      <!-- Modal Header -->
+	      <div  class="modal-header panel-heading">
+	        <h4 class="modal-title">메시지 확인</h4>
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      </div>
+	
+	      <!-- Modal body -->
+	      <div class="modal-body">
+	        <p id="checkMessage"></p>
+	      </div>
+	
+	      <!-- Modal footer -->
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+    
+	
 </body>
 </html>
