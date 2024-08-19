@@ -78,7 +78,6 @@ public class MemberController {
 					  
 			}
 			catch(DuplicateKeyException e){
-				System.out.println("중복아이디");
 				 rttr.addFlashAttribute("msgType", "실패 메세지");
 				 rttr.addFlashAttribute("msg", "이미 존재하는 회원입니다.");
 				 return "redirect:/member/memJoin.do";

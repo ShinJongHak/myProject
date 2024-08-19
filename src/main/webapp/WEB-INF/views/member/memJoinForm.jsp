@@ -15,7 +15,6 @@
   <script type="text/javascript">
     $(document).ready(function(){
     	if(${!empty msgType}){
-     		$("#messageType").attr("class", "alert alert-success");    
     		$("#myMessage").modal("show");
     	}
     });
@@ -63,7 +62,7 @@
 <div class="card container">
   <div class="card-header">회원가입</div>
   <div class="card-body">
-   <form name="frm" action="${contextPath}/memRegister.do" method="post">
+   <form name="frm" action="${contextPath}/member/memRegister.do" method="post">
          <input type="hidden" id="memPassword" name="memPassword" value=""/>
          <table class="table table-bordered" style="text-align: center; border: 1px solid #dddddd;">
            <tr>
@@ -151,6 +150,31 @@
 	    </div>
 	  </div>
 	</div>
+	
+	<!-- Modal -->
+	 <div class="modal" id="myMessage">
+	  <div class="modal-dialog">
+	    <div id="checkType" class="modal-content">
+	
+	      <!-- Modal Header -->
+	      <div  class="modal-header panel-heading">
+	        <h4 class="modal-title">${msgType}</h4>
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      </div>
+	
+	      <!-- Modal body -->
+	      <div class="modal-body">
+	        <p id="checkMessage">${msg}</p>
+	      </div>
+	
+	      <!-- Modal footer -->
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
     
 	
 </body>

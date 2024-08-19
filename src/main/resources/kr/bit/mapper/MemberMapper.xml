@@ -9,9 +9,8 @@
   </select>
   
  <insert id="register" parameterType="kr.bit.entity.Member">
-     insert into member(memIdx,memID,memPassword,memName,memAge,memGender,memEmail,memProfile)
-     values((select IFNULL(MAX(memIdx)+1,1) from mem_stbl mem) ,
-     #{memID},#{memPassword},#{memName},#{memAge},#{memGender},#{memEmail},#{memProfile})
+     insert into member(memID,memPassword,memName,memAge,memGender,memEmail,memProfile)
+     values(#{memID},#{memPassword},#{memName},#{memAge},#{memGender},#{memEmail},#{memProfile})
   </insert>
   
   

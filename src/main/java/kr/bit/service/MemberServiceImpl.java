@@ -18,4 +18,10 @@ public class MemberServiceImpl implements MemberService{
 		return m;
 	}
 
+	@Override
+	public int register(Member m) {
+		int result = memberMapper.register(m);
+		return result;
+	}
+
 }
