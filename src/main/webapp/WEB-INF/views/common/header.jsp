@@ -17,7 +17,7 @@
 	      <a class="nav-link" href="#">Link 2</a>
 	    </li>
 	  </ul>
-		
+	<c:if test="${empty mvo}">
 	  <ul class="navbar-nav">
 	    <!-- Dropdown -->
 	    <li class="nav-item dropdown">
@@ -26,10 +26,26 @@
 	      </a>
 	      <div class="dropdown-menu">
 	        <a class="dropdown-item" href="${contextPath}/member/memJoin.do">회원가입</a>
-	        <a class="dropdown-item" href="#">Link 2</a>
+	        <a class="dropdown-item" href="${contextPath}/member/memLoginForm.do">로그인</a>
 	        <a class="dropdown-item" href="#">Link 3</a>
 	      </div>
 	    </li>
 	  </ul>
+	</c:if>
+	<c:if test="${!empty mvo}">
+	  <ul class="navbar-nav">
+	    <!-- Dropdown -->
+	    <li class="nav-item dropdown">
+	      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+	        회원정보
+	      </a>
+	      <div class="dropdown-menu">
+	        <a class="dropdown-item" href="${contextPath}/member/memLogout.do">로그아웃</a>
+	        <a class="dropdown-item" href="${contextPath}/member/memLoginForm.do">회원정보수정</a>
+	        <a class="dropdown-item" href="#">Link 3</a>
+	      </div>
+	    </li>
+	  </ul>
+	</c:if>		
   </div>
 </nav>

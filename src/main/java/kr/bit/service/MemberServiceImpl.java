@@ -24,4 +24,10 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 
+	@Override
+	public Member memLogin(Member m) {
+		Member mvo = memberMapper.memLogin(m);
+		return mvo;
+	}
+
 }

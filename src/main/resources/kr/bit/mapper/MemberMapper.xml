@@ -4,15 +4,19 @@
 
 
   
-  <select id="registerCheck" resultType="kr.bit.entity.Member">
+ <select id="registerCheck" resultType="kr.bit.entity.Member">
     select * from member where memID=#{memID}
-  </select>
+ </select>
   
  <insert id="register" parameterType="kr.bit.entity.Member">
      insert into member(memID,memPassword,memName,memAge,memGender,memEmail,memProfile)
      values(#{memID},#{memPassword},#{memName},#{memAge},#{memGender},#{memEmail},#{memProfile})
-  </insert>
+ </insert>
   
-  
+ <select id="memLogin" parameterType="kr.bit.entity.Member" 
+                        resultType="kr.bit.entity.Member">
+     select * from member 
+     where memID=#{memID} and memPassword=#{memPassword}
+ </select>
 
 </mapper>
