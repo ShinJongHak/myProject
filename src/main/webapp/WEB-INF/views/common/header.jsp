@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>   
     
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
@@ -24,7 +25,7 @@
 	        접속하기
 	      </a>
 	      <div class="dropdown-menu">
-	        <a class="dropdown-item" href="#">게시판</a>
+	        <a class="dropdown-item" href="${contextPath}/member/memJoin.do">회원가입</a>
 	        <a class="dropdown-item" href="#">Link 2</a>
 	        <a class="dropdown-item" href="#">Link 3</a>
 	      </div>

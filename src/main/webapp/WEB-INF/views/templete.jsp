@@ -12,11 +12,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="panel panel-default">
-	  <div class="panel-heading">Panel Heading</div>
-	  <div class="panel-body"></div>
-      <div class="panel-footer">Panel Footer</div>
-    </div>
+<div class="card">
+  <div class="card-header">Header</div>
+  <div class="card-body">Content</div>
+  <div class="card-footer">Footer</div>
+</div>
 
 </body>
 </html>
