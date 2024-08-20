@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>myhome</title>
+  <title>myHome</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -34,25 +34,35 @@
   <div class="card-body">
    <h4 class="card-title">Spring boot</h4>
       <div class="row">
+      <c:if test="${empty mvo}">
          <div class="col-lg-2">
            <div class="card" style="min-height:500px; max-height: 1000px">
              <div class="card-body">
-               <h4 class="card-title">GUEST</h4>
-               <p class="card-text">회원님 Welcome!</p>
-               <form action="">
+               <form action="${contextPath}/member/memLogin.do" method="post">
                  <div class="form-group">
-                    <label for="memId">아이디</label>
-                    <input type="text" class="form-control" id="memId" name="memId"/>                    
+                    <label for="memID">아이디</label>
+                    <input type="text" class="form-control" id=memID name="memID"/>                    
                  </div>
                  <div class="form-group">
-                    <label for="memPwd">비밀번호</label>
-                    <input type="password" class="form-control" id="memPwd" name="memPwd"/>                    
+                    <label for="memPassword">비밀번호</label>
+                    <input type="password" class="form-control" id="memPassword" name="memPassword"/>                    
                  </div>
-                 <button type="button" class="btn btn-sm btn-primary form-control">로그인</button>
+                 <button type="submit" class="btn btn-sm btn-primary form-control">로그인</button>
                </form>
              </div>
            </div>
          </div>
+       </c:if>
+       <c:if test="${!empty mvo}">
+         <div class="col-lg-2">
+           <div class="card" style="min-height:500px; max-height: 1000px">
+             <div class="card-body">
+               <h4 class="card-title">GUEST</h4>
+               <p class="card-text">${mvo.memName} 회원님 Welcome!</p>
+             </div>
+           </div>
+         </div>
+       </c:if>
          <div class="col-lg-5">
            <div class="card" style="min-height:500px; max-height: 1000px">
              <div class="card-body">
