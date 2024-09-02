@@ -56,7 +56,7 @@
       
 	</footer>
 	
-   	<!-- Modal -->
+   	<!-- Modal 실패메시지 -->
 	 <div class="modal" id="myMessage">
 	  <div class="modal-dialog">
 	    <div id="checkType" class="modal-content">
