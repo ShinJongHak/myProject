@@ -15,8 +15,6 @@
   <script type="text/javascript">
   $(document).ready(function(){
   	if(${!empty msgType}){
-   		$("modal-title").text("실패 메시지");
-   		$("modal-body").text("아이디와 비밀번호를 확인해주세요");
   		$("#myMessage").modal("show");
   	}
   });
