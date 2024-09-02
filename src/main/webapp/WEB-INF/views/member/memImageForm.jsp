@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>myHome</title>
   <meta charset="utf-8">
@@ -15,42 +15,48 @@
   <script type="text/javascript">
   $(document).ready(function(){
   	if(${!empty msgType}){
-   		$("modal-title").text("실패 메시지");
-   		$("modal-body").text("아이디와 비밀번호를 확인해주세요");
+   		$("#messageType").attr("class", "modal-content panel-warning");    
   		$("#myMessage").modal("show");
   	}
   });
   </script>
 </head>
 <body>
-<jsp:include page="../common/header.jsp"/>
-<div class="card container">
-  <div class="card-header">로그인화면</div>
-  <div class="card-body">
-    <form action="${contextPath}/member/memLogin.do" method="post">
-       <table class="table table-bordered" style="text-align: center; border: 1px solid #dddddd;">
-         <tr>
-           <td style="width: 110px; vertical-align: middle;">아이디</td>
-           <td><input id="memID" name="memID" class="form-control" type="text" maxlength="20" placeholder="아이디를 입력하세요."/></td>
-         </tr>
-         <tr>
-           <td style="width: 110px; vertical-align: middle;">비밀번호</td>
-           <td colspan="2"><input id="memPassword" name="memPassword" class="form-control" type="password" maxlength="20" placeholder="비밀번호를 입력하세요."/></td>            
-         </tr>      
-         <tr>
-           <td colspan="2" style="text-align: left;">
-              <input type="submit" class="btn btn-primary btn-sm pull-right" value="로그인"/>
-           </td>             
-         </tr>
-       </table>
-     </form> 
+  <jsp:include page="../common/header.jsp"/> 
+  <div class="card container">
+    <div class="card-header">프로필 수정</div>
+    <div class="card-body">
+      <form action="${contextPath}/member/memImageUpdate.do" method="post" enctype="multipart/form-data">
+         <input type="hidden" name="memID" value="${mvo.memID}"/>
+         <table class="table table-bordered" style="text-align: center; border: 1px solid #dddddd;">
+           <tr>
+             <td style="width: 110px; vertical-align: middle;">아이디</td>
+             <td>${mvo.memID}</td>
+           </tr>
+           <tr>
+             <td style="width: 110px; vertical-align: middle;">사진 업로드</td> 
+             <td >
+               <div class="box bg-light rounded">
+                 이미지를 업로드하세요.<br>
+                 <input type="file" name="memProfile"/>
+               </div>
+             </td>            
+           </tr>      
+           <tr>
+             <td colspan="2" style="text-align: left;">
+                <input type="submit" class="btn btn-primary btn-sm float-right" value="등록"/>
+             </td>             
+           </tr>
+         </table>
+      </form> 
+    </div>
   </div>
-</div>
-<footer>
-   <jsp:include page="../common/footer.jsp"></jsp:include>
-</footer>
-</body>
-	<!-- Modal -->
+    <footer>
+      <jsp:include page="../common/footer.jsp"></jsp:include>
+      
+	</footer>
+	
+   	<!-- Modal -->
 	 <div class="modal" id="myMessage">
 	  <div class="modal-dialog">
 	    <div id="checkType" class="modal-content">
@@ -73,5 +79,7 @@
 	    </div>
 	  </div>
 	</div>
-	
+
+
+</body>
 </html>

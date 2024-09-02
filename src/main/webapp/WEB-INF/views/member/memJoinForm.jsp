@@ -122,6 +122,7 @@
       </form>
     </div>    
   </div>
+  
   <footer>
 	 <jsp:include page="../common/footer.jsp"></jsp:include>
   </footer>

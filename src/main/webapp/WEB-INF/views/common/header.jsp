@@ -8,7 +8,7 @@
   <a class="navbar-brand" href="#">Logo</a>
 
   <!-- Links -->
-  <div class="collapse navbar-collapse justify-content-between" id="collapsibleNavbar">
+  <div class="collapse navbar-collapse justify-content-between">
 	  <ul class="navbar-nav">
 	    <li class="nav-item">
 	      <a class="nav-link" href="#">게시판</a>
@@ -19,32 +19,33 @@
 	  </ul>
 	<c:if test="${empty mvo}">
 	  <ul class="navbar-nav">
-	    <!-- Dropdown -->
-	    <li class="nav-item dropdown">
-	      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-	        접속하기
-	      </a>
-	      <div class="dropdown-menu">
-	        <a class="dropdown-item" href="${contextPath}/member/memJoin.do">회원가입</a>
-	        <a class="dropdown-item" href="${contextPath}/member/memLoginForm.do">로그인</a>
-	        <a class="dropdown-item" href="#">Link 3</a>
-	      </div>
+	    <li class="nav-item">
+	      <a class="nav-link" href="${contextPath}/member/memLoginForm.do">로그인</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="${contextPath}/member/memJoinForm.do">회원가입</a>
 	    </li>
 	  </ul>
 	</c:if>
 	<c:if test="${!empty mvo}">
 	  <ul class="navbar-nav">
-	    <!-- Dropdown -->
-	    <li class="nav-item dropdown">
-	      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-	        회원정보
-	      </a>
-	      <div class="dropdown-menu">
-	        <a class="dropdown-item" href="${contextPath}/member/memLogout.do">로그아웃</a>
-	        <a class="dropdown-item" href="${contextPath}/member/memLoginForm.do">회원정보수정</a>
-	        <a class="dropdown-item" href="#">Link 3</a>
-	      </div>
+	    <li class="nav-item">
+	      <a class="nav-link" href="${contextPath}/member/memLogout.do">회원정보수정</a>
 	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="${contextPath}/member/memImageForm.do">사진등록</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="${contextPath}/member/memLogout.do">로그아웃</a>
+	    </li>
+	    <c:if test="${!empty mvo}">
+          <c:if test="${empty mvo.memProfile}">
+			<li><img class="img-circle" src="${contextPath}/resources/images/basic.PNG" style="width: 50px; height: 50px"/> ${mvo.memName} 님Welcome.</li>
+		  </c:if>
+		  <c:if test="${!empty mvo.memProfile}">
+			<li><img class="img-circle" src="${contextPath}/resources/upload/${mvo.memProfile}" style="width: 50px; height: 50px"/> ${mvo.memName} 님Welcome.</li>
+		  </c:if>			  
+       </c:if>
 	  </ul>
 	</c:if>		
   </div>

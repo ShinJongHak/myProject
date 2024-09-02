@@ -30,4 +30,15 @@ public class MemberServiceImpl implements MemberService{
 		return mvo;
 	}
 
+	@Override
+	public Member getMember(String memID) {
+		Member m = memberMapper.getMember(memID);
+		return m;
+	}
+
+	@Override
+	public void memProfileUpdate(Member mvo) {
+		memberMapper.memProfileUpdate(mvo);
+	}
+
 }

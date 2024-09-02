@@ -18,5 +18,13 @@
      select * from member 
      where memID=#{memID} and memPassword=#{memPassword}
  </select>
+ 
+ <select id="getMember" resultType="kr.bit.entity.Member">
+     select * from member where memID=#{memID}
+ </select> 
+ 
+ <update id="memProfileUpdate" parameterType="kr.bit.entity.Member">
+     update member set memProfile=#{memProfile} where memID=#{memID}
+ </update>
 
 </mapper>
