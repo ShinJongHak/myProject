@@ -41,4 +41,11 @@ public class MemberServiceImpl implements MemberService{
 		memberMapper.memProfileUpdate(mvo);
 	}
 
+	@Override
+	public int memUpdate(Member mvo) {
+		
+		return memberMapper.memUpdate(mvo);
+		
+	}
+
 }

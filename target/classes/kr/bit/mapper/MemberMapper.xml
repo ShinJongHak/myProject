@@ -23,6 +23,12 @@
      select * from member where memID=#{memID}
  </select> 
  
+  <update id="memUpdate" parameterType="kr.bit.entity.Member">
+     update member set memPassword=#{memPassword}, memName=#{memName}, 
+            memAge=#{memAge},memGender=#{memGender},memEmail=#{memEmail} 
+            where memID=#{memID}      
+  </update>
+ 
  <update id="memProfileUpdate" parameterType="kr.bit.entity.Member">
      update member set memProfile=#{memProfile} where memID=#{memID}
  </update>

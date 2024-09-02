@@ -30,7 +30,7 @@
 	<c:if test="${!empty mvo}">
 	  <ul class="navbar-nav">
 	    <li class="nav-item">
-	      <a class="nav-link" href="${contextPath}/member/memLogout.do">회원정보수정</a>
+	      <a class="nav-link" href="${contextPath}/member/memUpdateForm.do">회원정보수정</a>
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="${contextPath}/member/memImageForm.do">사진등록</a>

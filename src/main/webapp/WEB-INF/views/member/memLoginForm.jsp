@@ -39,7 +39,7 @@
          </tr>      
          <tr>
            <td colspan="2" style="text-align: left;">
-              <input type="submit" class="btn btn-primary btn-sm pull-right" value="로그인"/>
+              <input type="submit" class="btn btn-primary btn-sm float-right" value="로그인"/>
            </td>             
          </tr>
        </table>
