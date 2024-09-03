@@ -41,9 +41,9 @@
   </script>
 </head>
 <body>
+<jsp:include page="../common/header.jsp"/> 
 <div class="container">
-  <jsp:include page="../common/header.jsp"/> 
-  <div class="card container">
+  <div class="card">
     <div class="card-header">회원정보수정</div>
     <div class="card-body">
       <form name="frm" action="${contextPath}/member/memUpdate.do" method="post">

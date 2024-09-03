@@ -3,23 +3,25 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-<c:set var="cpath" value="${pageContext.request.contextPath}"/>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>myHome</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/resources/css/list.css">
   <script type="text/javascript">
      $(document).ready(function(){
     	var result='${result}'; 
     	checkModal(result); 
     	 
     	$("#regBtn").click(function(){
-    		location.href="${cpath}/board/register";
+    		location.href="${contextPath}/board/register.do";
     	}); 
     	//페이지 번호 클릭시 이동 하기
     	var pageFrm=$("#pageFrm");
@@ -57,12 +59,10 @@
   </script>
 </head>
 <body>
- 
-<div class="container">
-  <h2>Spring MVC</h2>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-        <c:if test="${empty mvo}">
+<jsp:include page="../common/header.jsp"/> 
+  <div class="container listCt" >
+    <div class="header" >
+       <c:if test="${empty mvo}">
 	     <form class="form-inline" action="${cpath}/login/loginProcess" method="post">
 		  <div class="form-group">
 		    <label for="memID">ID:</label>
@@ -82,9 +82,9 @@
 		  </div>
 		  <button type="submit" class="btn btn-default">로그아웃</button>
 		 </form>
-		</c:if>
+	   </c:if>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
       <table class="table table-bordered table-hover">
         <thead>
           <tr>
@@ -129,33 +129,37 @@
         <c:if test="${!empty mvo}"> 
         <tr>
           <td colspan="5">
-            <button id="regBtn" class="btn btn-sm btn-primary pull-right">글쓰기</button>            
+            <button id="regBtn" class="btn btn-sm btn-primary float-right">글쓰기</button>            
           </td>
         </tr>
         </c:if>
       </table>
+      
       <!-- 페이징 START -->
-      <div style="text-align: center">
-	    <ul class="pagination">
-      <!-- 이전처리 -->
-      <c:if test="${pageMaker.prev}">
-        <li class="paginate_button previous">
-          <a href="${pageMaker.startPage-1}">◀</a>
-        </li>
-      </c:if>      
-      <!-- 페이지번호 처리 -->
-          <c:forEach var="pageNum" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-	         <li class="paginate_button ${pageMaker.cri.page==pageNum ? 'active' : ''}"><a href="${pageNum}">${pageNum}</a></li>
-		  </c:forEach>    
-      <!-- 다음처리 -->
-      <c:if test="${pageMaker.next}">
-        <li class="paginate_button next">
-          <a href="${pageMaker.endPage+1}">▶</a>
-        </li>
-      </c:if> 
-        </ul>
-      </div>
-      <!-- END -->
+	  <div style="text-align: center">     
+	     <nav aria-label="Page navigation example">
+		    <ul class="pagination">
+		      <!-- 이전처리 -->
+		      <li class="page-item">
+		        <a class="page-link" href="#" aria-label="Previous">
+		          <span aria-hidden="true">&laquo;</span>
+		        </a>
+		      </li>
+		      
+		      <!-- 페이지번호 처리 -->
+		       <c:forEach var="pageNum" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+	             <li class="page-item ${pageMaker.cri.page==pageNum ? 'active' : ''}"><a class="page-link" href="${pageNum}">${pageNum}</a></li>
+		       </c:forEach> 
+		       
+		      <!-- 다음처리 -->
+		      <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Next">
+		          <span aria-hidden="true">&raquo;</span>
+		      </a>
+		      </li>
+		    </ul>
+	     </nav>
+	  </div>
       
        <!-- 검색메뉴 -->
        <div style="text-align: center;">
@@ -182,30 +186,36 @@
          <input type="hidden" name="keyword" value="${pageMaker.cri.keyword}"/>
       </form>      
       
-      <!-- Modal 추가 -->
-	  <div id="myModal" class="modal fade" role="dialog">
-		  <div class="modal-dialog">
-		
-		    <!-- Modal content-->
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal">&times;</button>
-		        <h4 class="modal-title">Modal Header</h4>
-		      </div>
-		      <div class="modal-body">		      		       
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		
-		  </div>
-		</div>
-	  <!-- Modal END -->	
+      <!--  다이얼로그창(모달) -->
+	<!-- Modal -->
+	 <div class="modal" id="myModal">
+	  <div class="modal-dialog">
+	    <div id="checkType" class="modal-content">
+	
+	      <!-- Modal Header -->
+	      <div  class="modal-header panel-heading">
+	        <h4 class="modal-title">메시지 확인</h4>
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      </div>
+	
+	      <!-- Modal body -->
+	      <div class="modal-body">
+	        <p id="checkMessage"></p>
+	      </div>
+	
+	      <!-- Modal footer -->
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Modal END-->
     </div>
-    <div class="panel-footer">스프2탄(답변형 게시판 만들기)</div>
   </div>
-</div>
-
+  
+  <footer>
+     <jsp:include page="../common/footer.jsp"></jsp:include>
+  </footer>
 </body>
 </html>

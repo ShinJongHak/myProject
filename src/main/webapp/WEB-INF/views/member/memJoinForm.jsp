@@ -59,10 +59,11 @@
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/>
-<div class="card container">
-  <div class="card-header">회원가입</div>
-  <div class="card-body">
-   <form name="frm" action="${contextPath}/member/memRegister.do" method="post">
+<div class="container">
+  <div class="card">
+   <div class="card-header">회원가입</div>
+   <div class="card-body">
+     <form name="frm" action="${contextPath}/member/memRegister.do" method="post">
          <input type="hidden" id="memPassword" name="memPassword" value=""/>
          <table class="table table-bordered" style="text-align: center; border: 1px solid #dddddd;">
            <tr>
@@ -122,6 +123,7 @@
       </form>
     </div>    
   </div>
+</div>
   
   <footer>
 	 <jsp:include page="../common/footer.jsp"></jsp:include>

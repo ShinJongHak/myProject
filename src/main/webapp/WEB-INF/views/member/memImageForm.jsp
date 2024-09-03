@@ -21,8 +21,9 @@
   </script>
 </head>
 <body>
-  <jsp:include page="../common/header.jsp"/> 
-  <div class="card container">
+<jsp:include page="../common/header.jsp"/> 
+<div class="container">
+  <div class="card">
     <div class="card-header">프로필 수정</div>
     <div class="card-body">
       <form action="${contextPath}/member/memImageUpdate.do" method="post" enctype="multipart/form-data">
@@ -49,35 +50,36 @@
          </table>
       </form> 
     </div>
-  </div>
+ </div>
+</div>
   
-  <footer>
-     <jsp:include page="../common/footer.jsp"></jsp:include>
-  </footer>
+<footer>
+   <jsp:include page="../common/footer.jsp"></jsp:include>
+</footer>
 	
-   	<!-- Modal 실패메시지 -->
-	 <div class="modal" id="myMessage">
-	  <div class="modal-dialog">
-	    <div id="checkType" class="modal-content">
-	
-	      <!-- Modal Header -->
-	      <div  class="modal-header panel-heading">
-	        <h4 class="modal-title">${msgType}</h4>
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	      </div>
-	
-	      <!-- Modal body -->
-	      <div class="modal-body">
-	        <p id="checkMessage">${msg}</p>
-	      </div>
-	
-	      <!-- Modal footer -->
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+<!-- Modal 실패메시지 -->
+<div class="modal" id="myMessage">
+  <div class="modal-dialog">
+    <div id="checkType" class="modal-content">
+
+      <!-- Modal Header -->
+      <div  class="modal-header panel-heading">
+        <h4 class="modal-title">${msgType}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p id="checkMessage">${msg}</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </body>
