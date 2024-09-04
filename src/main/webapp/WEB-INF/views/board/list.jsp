@@ -21,7 +21,7 @@
     	checkModal(result); 
     	 
     	$("#regBtn").click(function(){
-    		location.href="${contextPath}/board/register.do";
+    		location.href="${contextPath}/board/registerForm.do";
     	}); 
     	//페이지 번호 클릭시 이동 하기
     	var pageFrm=$("#pageFrm");
@@ -149,7 +149,7 @@
 		      
 		      <!-- 페이지번호 처리 -->
 		       <c:forEach var="pageNum" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-	             <li class="page-item ${pageMaker.cri.page==pageNum ? 'active' : ''}"><a class="page-link" href="${pageNum}">${pageNum}</a></li>
+	             <li class="page-item  paginate_button ${pageMaker.cri.page==pageNum ? 'active' : ''}"><a class="page-link" href="${pageNum}">${pageNum}</a></li>
 		       </c:forEach> 
 		       
 		      <!-- 다음처리 -->
@@ -164,7 +164,7 @@
       
        <!-- 검색메뉴 -->
        <div style="text-align: center;">
-		<form class="form-inline" action="${cpath}/board/list" method="post">
+		<form class="form-inline" action="${contextPath}/board/list.do" method="post">
 		  <div class="form-group">	
 		   <select name="type" class="form-control">
 		      <option value="writer" ${pageMaker.cri.type=='writer' ? 'selected' : ''}>이름</option>
@@ -179,7 +179,7 @@
 		</form>
 	   </div>
       
-      <form id="pageFrm" action="${cpath}/board/list" method="post">
+      <form id="pageFrm" action="${contextPath}/board/list.do" method="post">
          <!-- 게시물 번호(idx)추가 -->         
          <input type="hidden" id="page" name="page" value="${pageMaker.cri.page}"/>
          <input type="hidden" name="perPageNum" value="${pageMaker.cri.perPageNum}"/>

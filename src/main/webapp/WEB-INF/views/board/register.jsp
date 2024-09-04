@@ -21,7 +21,7 @@
   <div class="card">
     <div class="card-header">BOARD</div>
     <div class="card-body">
-        <form action="${contextPath}/board/register" method="post">
+        <form action="${contextPath}/board/register.do" method="post">
           <input type="hidden" name="memID" value="${mvo.memID}"/>
           <div class="form-group">
              <label>제목</label>
@@ -35,8 +35,8 @@
              <label>작성자</label>
              <input type="text" readonly="readonly" name="writer" class="form-control" value="${mvo.memName}">
           </div>
-          <button type="submit" class="btn btn-default btn-sm">등록</button>
-          <button type="reset" class="btn btn-default btn-sm">취소</button>
+          <button type="submit" class="btn btn-primary">등록</button>
+          <button type="reset" class="btn btn-primary">취소</button>
        </form>
     </div>
   </div>

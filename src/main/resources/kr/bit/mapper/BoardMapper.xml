@@ -24,10 +24,10 @@
   
   <insert id="insert" parameterType="kr.bit.entity.Board">
      insert into 
-     tblBoard(idx,memID,title,content,writer,boardGroup,boardSequence,boardLevel,boardAvailable)
+       Board(idx,memID,title,content,writer,boardGroup,boardSequence,boardLevel,boardAvailable)
 		     select IFNULL(MAX(idx)+1, 1),#{memID},#{title},#{content},#{writer},
 		            IFNULL(MAX(boardGroup)+1, 0),0,0,1 
-		     from tblBoard
+		     from Board
   </insert>
   
   <insert id="insertSelectKey" parameterType="kr.bit.entity.Board">
