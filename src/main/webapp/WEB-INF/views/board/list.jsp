@@ -60,8 +60,9 @@
 </head>
 <body>
 <jsp:include page="../common/header.jsp"/> 
-  <div class="container listCt" >
-    <div class="header" >
+<div class="container listCt" >
+  <div class="card">
+    <div class="card-header" >
        <c:if test="${empty mvo}">
 	     <form class="form-inline" action="${cpath}/login/loginProcess" method="post">
 		  <div class="form-group">
@@ -186,7 +187,15 @@
          <input type="hidden" name="keyword" value="${pageMaker.cri.keyword}"/>
       </form>      
       
-      <!--  다이얼로그창(모달) -->
+    </div>
+  </div>
+</div>
+
+  
+<footer>
+   <jsp:include page="../common/footer.jsp"></jsp:include>
+</footer>
+  <!--  다이얼로그창(모달) -->
 	<!-- Modal -->
 	 <div class="modal" id="myModal">
 	  <div class="modal-dialog">
@@ -211,11 +220,5 @@
 	  </div>
 	</div>
 	<!-- Modal END-->
-    </div>
-  </div>
-  
-  <footer>
-     <jsp:include page="../common/footer.jsp"></jsp:include>
-  </footer>
 </body>
 </html>

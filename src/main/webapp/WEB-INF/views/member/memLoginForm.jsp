@@ -42,9 +42,9 @@
 	           </td>             
 	         </tr>
 	      </table>
-      </form> 
-  </div>
-</div>
+       </form> 
+     </div>
+   </div>
 </div>
 <footer>
    <jsp:include page="../common/footer.jsp"></jsp:include>
