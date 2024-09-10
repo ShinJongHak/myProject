@@ -20,7 +20,7 @@
     	var result='${result}'; 
     	checkModal(result); 
     	 
-    	$("#regBtn").click(function(){
+    	$("#regBtn").on("click", function(){
     		location.href="${contextPath}/board/registerForm.do";
     	}); 
     	//페이지 번호 클릭시 이동 하기
@@ -37,7 +37,7 @@
     		var idx=$(this).attr("href");
     		var tag="<input type='hidden' name='idx' value='"+idx+"'/>";
     		pageFrm.append(tag);
-    		pageFrm.attr("action","${cpath}/board/get");
+    		pageFrm.attr("action","${contextPath}/board/get.do");
     		pageFrm.attr("method", "get");
     		pageFrm.submit();
     	});
@@ -64,25 +64,12 @@
   <div class="card">
     <div class="card-header" >
        <c:if test="${empty mvo}">
-	     <form class="form-inline" action="${cpath}/login/loginProcess" method="post">
-		  <div class="form-group">
-		    <label for="memID">ID:</label>
-		    <input type="text" class="form-control" name="memID">
-		  </div>
-		  <div class="form-group">
-		    <label for="memPwd">Password:</label>
-		    <input type="password" class="form-control" name="memPwd">
-		  </div>
-		  <button type="submit" class="btn btn-default">로그인</button>
-		 </form>
-		</c:if>
-		<c:if test="${!empty mvo}">
-		 <form class="form-inline" action="${cpath}/login/logoutProcess" method="post">
+	     GUEST님 방문을 환영합니다.
+	   </c:if>
+	   <c:if test="${!empty mvo}">
 		  <div class="form-group">
 		    <label>${mvo.memName}님 방문을 환영합니다.</label>		    
 		  </div>
-		  <button type="submit" class="btn btn-default">로그아웃</button>
-		 </form>
 	   </c:if>
     </div>
     <div class="card-body">
@@ -130,7 +117,7 @@
         <c:if test="${!empty mvo}"> 
         <tr>
           <td colspan="5">
-            <button id="regBtn" class="btn btn-sm btn-primary float-right">글쓰기</button>            
+            <button id="regBtn" class="btn-primary btn-sm float-right">글쓰기</button>            
           </td>
         </tr>
         </c:if>

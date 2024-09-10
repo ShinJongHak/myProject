@@ -36,7 +36,7 @@
   		from board
   	 </selectKey>
   	insert into 
-    tblBoard(idx, memID, title, content, writer, boardGroup, boardSequence, boardLevel, boardAvailable)
+    Board(idx, memID, title, content, writer, boardGroup, boardSequence, boardLevel, boardAvailable)
 	values(#{idx}, #{memID},#{title}, #{content}, #{writer},#{boardGroup},0,0,1)
   </insert>
   
@@ -73,10 +73,10 @@
   
   <insert id="replyInsert" parameterType="kr.bit.entity.Board">
      <selectKey keyProperty="idx" resultType="kr.bit.entity.Board" order="BEFORE">
-        select IFNULL(max(idx)+1, 1) as idx from tblBoard      
+        select IFNULL(max(idx)+1, 1) as idx from Board      
      </selectKey>     
      insert into 
-     tblBoard(idx,memID,title,content,writer,boardGroup,boardSequence,boardLevel,boardAvailable)
+     Board(idx,memID,title,content,writer,boardGroup,boardSequence,boardLevel,boardAvailable)
 	 values(#{idx},#{memID},#{title},#{content},#{writer},#{boardGroup},#{boardSequence},#{boardLevel},1)
   </insert>
   

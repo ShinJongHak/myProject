@@ -1,33 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contexPath" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <title>Bootstrap Example</title>
+  <title>myHome</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
    <script type="text/javascript">
     $(document).ready(function(){
     	$("button").on("click", function(e){
+    		
     		var formData=$("#frm");
     		var btn=$(this).data("btn"); // data-btn="list"
     		if(btn=='reply'){
-    			formData.attr("action", "${contexPath}/board/reply");
+    			formData.attr("action", "${contextPath}/board/replyForm");
     			
     		}else if(btn=='modify'){
-    			formData.attr("action", "${contexPath}/board/modify");
+    			formData.attr("action", "${contextPath}/board/modifyForm.do");
     			
     		}else if(btn=='list'){
     			formData.find("#idx").remove();
-    			formData.attr("action", "${contexPath}/board/list");
+    			formData.attr("action", "${contextPath}/board/list.do");
     		}
     		else if(btn=='remove'){
-        			formData.attr("action", "${contexPath}/board/remove");
+        		formData.attr("action", "${contextPath}/board/remove.do");
         	}
     		formData.submit(); 
     		
@@ -36,10 +38,11 @@
   </script>
 </head>
 <body>
-    <div class="panel panel-default">
-      <h2>Panel Heading</h2>
-	  <div class="panel-heading">Panel Heading</div>
-	  <div class="panel-body">
+<jsp:include page="../common/header.jsp"/> 
+<div class="container">
+  <div class="card">
+	  <div class="card-header">상세보기</div>
+	  <div class="card-body">
 	  	<table class=table>
 	  		<tr>
 	  			<td>번호</td>
@@ -63,29 +66,30 @@
 	  			<c:if test="${!empty mvo && mvo.memID eq vo.memID}">
 	  			  <button type="button" data-btn="modify" class="btn-primary btn-sm">수정화면</button>
 	  			  <button type="button" data-btn="remove" class="btn-warning btn-sm">삭제</button>
-	  			  <button type="button" data-btn="list" class="btn btn-primary btn-sm">리스트</button>
+	  			  <button type="button" data-btn="list" class="btn-primary btn-sm">리스트</button>
 	  			</c:if>
 	  			<c:if test="${!empty mvo && mvo.memID ne vo.memID}">
 	  			  <button type="button" data-btn="reply" class="btn-primary btn-sm">답글</button>
-	  			  <button type="button" data-btn="list" class="btn btn-primary btn-sm">리스트</button>
+	  			  <button type="button" data-btn="list" class="btn-primary btn-sm">리스트</button>
 	  			</c:if>
 	  			<c:if test="${empty mvo}">
-	  			  <button type="button" data-btn="list" class="btn btn-primary btn-sm">리스트</button>
+	  			  <button type="button" data-btn="list" class="btn-primary btn-sm">리스트</button>
 	  			</c:if>
 	  			</td>
 	  		</tr>
 	  	</table>
-	  <form id="frm" method="get">
+	    <form id="frm" method="get">
           <input type="hidden" id="idx" name="idx" value="<c:out value='${vo.idx}'/>"/> 
           <input type="hidden" name="page" value="<c:out value='${cri.page}'/>"/>
           <input type="hidden" name="perPageNum" value="<c:out value='${cri.perPageNum}'/>"/>
           <input type="hidden" name="type" value="${cri.type}"/>
           <input type="hidden" name="keyword" value="${cri.keyword}"/>
-      </form>
-	  </div>
-      <div class="panel-footer">Panel Footer</div>
-
-   </div>
-
+        </form>
+     </div>
+  </div>
+</div>
+<footer>
+   <jsp:include page="../common/footer.jsp"></jsp:include>
+</footer>  
 </body>
 </html>
