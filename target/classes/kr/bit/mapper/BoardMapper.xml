@@ -18,6 +18,7 @@
 
   <select id="getList" parameterType="kr.bit.entity.Criteria" resultType="kr.bit.entity.Board">
   	select * from board
+  	<include refid="search"/>
   	order by boardGroup desc, boardSequence asc
     limit #{pageStart},#{perPageNum} 
   </select>
@@ -82,6 +83,7 @@
   
   <select id="totalCount" resultType="int" parameterType="kr.bit.entity.Criteria">
     select count(*) from board
+    <include refid="search"/>
   </select>
 
 

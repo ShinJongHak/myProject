@@ -59,7 +59,9 @@
   </script>
 </head>
 <body>
-<jsp:include page="../common/header.jsp"/> 
+<header>
+  <jsp:include page="../common/header.jsp"/>
+</header>
 <div class="container listCt" >
   <div class="card">
     <div class="card-header" >
@@ -87,27 +89,27 @@
           <tr>
             <td>${vo.idx}</td>           
             <td>
-            <c:if test="${vo.boardLevel>0}">
-              <c:forEach begin="1" end="${vo.boardLevel}">
-                 <span style="padding-left: 10px"></span>
-              </c:forEach>            
-            </c:if>
-            <c:if test="${vo.boardLevel>0}">
-              <c:if test="${vo.boardAvailable==1}">
-               <a class="move" href="${vo.idx}"><c:out value='[RE]${vo.title}'/></a>
+              <c:if test="${vo.boardLevel>0}">
+                <c:forEach begin="1" end="${vo.boardLevel}">
+                   <span style="padding-left: 10px"></span>
+                </c:forEach>            
               </c:if>
-              <c:if test="${vo.boardAvailable==0}">
-               <a href="javascript:goMsg()">[RE]삭제된 게시물입니다.</a>
+              <c:if test="${vo.boardLevel>0}">
+                <c:if test="${vo.boardAvailable==1}">
+                 <a class="move" href="${vo.idx}"><c:out value='[RE]${vo.title}'/></a>
+                </c:if>
+                <c:if test="${vo.boardAvailable==0}">
+                 <a href="javascript:goMsg()">[RE]삭제된 게시물입니다.</a>
+                </c:if>
               </c:if>
-            </c:if>
-            <c:if test="${vo.boardLevel==0}">
-              <c:if test="${vo.boardAvailable==1}">
-                <a class="move" href="${vo.idx}"><c:out value='${vo.title}'/></a>
+              <c:if test="${vo.boardLevel==0}">
+                <c:if test="${vo.boardAvailable==1}">
+                  <a class="move" href="${vo.idx}"><c:out value='${vo.title}'/></a>
+                </c:if>
+                <c:if test="${vo.boardAvailable==0}">
+                  <a href="javascript:goMsg()">삭제된 게시물입니다.</a>
+                </c:if>
               </c:if>
-              <c:if test="${vo.boardAvailable==0}">
-                <a href="javascript:goMsg()">삭제된 게시물입니다.</a>
-              </c:if>
-            </c:if>
             </td>
             <td>${vo.writer}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.indate}"/></td>
@@ -115,11 +117,11 @@
           </tr>
         </c:forEach>
         <c:if test="${!empty mvo}"> 
-        <tr>
-          <td colspan="5">
-            <button id="regBtn" class="btn-primary btn-sm float-right">글쓰기</button>            
-          </td>
-        </tr>
+          <tr>
+            <td colspan="5">
+              <button id="regBtn" class="btn-primary btn-sm float-right">글쓰기</button>            
+            </td>
+          </tr>
         </c:if>
       </table>
       

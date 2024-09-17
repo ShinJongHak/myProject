@@ -36,10 +36,12 @@
   </script>
 </head>
 <body>
-<jsp:include page="../common/header.jsp"/> 
+<header>
+  <jsp:include page="../common/header.jsp"/>
+</header>
 <div class="container">
   <div class="card">
-   <div class="card-header">BOARD</div>
+   <div class="card-header">답글화면</div>
    <div class="card-body">
       <form id="frm"  method="post">
         <input type="hidden" name="page" value="<c:out value='${cri.page}'/>"/>

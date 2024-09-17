@@ -27,18 +27,16 @@ public class BoardController{
 	
 	@RequestMapping("/list.do")
 	public String getList(Criteria cri, Model model) {
-		System.out.println(cri);
+		System.out.println("검색");
 		List<Board> list=boardService.getList(cri);
-		System.out.println(list);
-		// 객체바인딩
-		model.addAttribute("list", list); // Model
-		// 페이징 처리에 필요한 부분
+		model.addAttribute("list", list); 
 		PageMaker pageMaker=new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(boardService.totalCount(cri));
 		model.addAttribute("pageMaker", pageMaker);		
-		return "board/list"; // View
+		return "board/list"; 
  	}
+	
 	
 	@RequestMapping("/registerForm.do")
 	public String registerForm() {
@@ -56,6 +54,14 @@ public class BoardController{
 		Board vo = boardService.get(idx);
 		model.addAttribute("vo", vo);
 		model.addAttribute("cri", cri);
+		return "board/get";
+		
+	}
+	
+	@RequestMapping("/IndexGet.do")
+	public String IndexGetForm(@RequestParam("idx") int idx,  Model model) {
+		Board vo = boardService.get(idx);
+		model.addAttribute("vo", vo);
 		return "board/get";
 		
 	}

@@ -21,7 +21,9 @@
   </script>
 </head>
 <body>
-<jsp:include page="../common/header.jsp"/>
+<header>
+  <jsp:include page="../common/header.jsp"/>
+</header>
 <div class="container">
    <div class="card">
      <div class="card-header">로그인화면</div>

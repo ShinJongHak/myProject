@@ -16,10 +16,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   
 <body>
-<jsp:include page="../common/header.jsp"/> 
- <div class="container">
+<header>
+  <jsp:include page="../common/header.jsp"/>
+</header>
+<div class="container">
   <div class="card">
-    <div class="card-header">BOARD</div>
+    <div class="card-header">등록화면</div>
     <div class="card-body">
         <form action="${contextPath}/board/register.do" method="post">
           <input type="hidden" name="memID" value="${mvo.memID}"/>
@@ -40,7 +42,7 @@
        </form>
     </div>
   </div>
- </div>
+</div>
  
  <footer>
      <jsp:include page="../common/footer.jsp"></jsp:include>

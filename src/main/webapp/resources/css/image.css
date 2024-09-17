@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+	.visual{
+		position: relative;
+	}
+	
+	.image {
+		position: relative;
+		width: 100%;
+		height: 300px;
+	}
+	
+	.vsTitle{
+		position: absolute;
+		text-align:center;
+		top: 50px;
+		left:500px;
+		color: white;
+		
+	}
+	
+	.mainTitle {
+		font-size: 5em;
+	}
+	
