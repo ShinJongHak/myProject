@@ -52,7 +52,8 @@
 	       <input type="hidden" name="perPageNum" value="<c:out value='${cri.perPageNum}'/>"/>
 	       <input type="hidden" name="type" value="${cri.type}"/>
 	       <input type="hidden" name="keyword" value="${cri.keyword}"/>
-		  	<table class=table>
+	       <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		   <table class=table>
 		  		<tr>
 		  			<td>번호</td>
 		  			<td>${vo.idx}</td>	

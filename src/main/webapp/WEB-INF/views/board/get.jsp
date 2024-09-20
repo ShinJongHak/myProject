@@ -17,7 +17,7 @@
     	$("button").on("click", function(e){
     		
     		var formData=$("#frm");
-    		var btn=$(this).data("btn"); // data-btn="list"
+    		var btn=$(this).data("btn"); 
     		if(btn=='reply'){
     			formData.attr("action", "${contextPath}/board/replyForm");
     			

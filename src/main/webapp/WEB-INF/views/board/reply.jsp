@@ -51,6 +51,7 @@
         <!--  idx(원글,부모글) -->
         <input type="hidden" name="idx" value="${vo.idx}"/>
         <input type="hidden" name="memID" value="${mvo.memID}"/>
+        <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="form-group">
            <label>제목</label>
            <input type="text" name="title" class="form-control" value="<c:out value='${vo.title}'/>">

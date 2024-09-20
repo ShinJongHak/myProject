@@ -25,6 +25,7 @@
     <div class="card-body">
         <form action="${contextPath}/board/register.do" method="post">
           <input type="hidden" name="memID" value="${mvo.memID}"/>
+          <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
           <div class="form-group">
              <label>제목</label>
              <input type="text" name="title" class="form-control">

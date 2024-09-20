@@ -28,7 +28,7 @@
   <div class="card">
     <div class="card-header">프로필 수정</div>
     <div class="card-body">
-      <form action="${contextPath}/member/memImageUpdate.do" method="post" enctype="multipart/form-data">
+      <form action="${contextPath}/member/memImageUpdate.do?${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
          <input type="hidden" name="memID" value="${mvo.memID}"/>
          <table class="table table-bordered" style="text-align: center; border: 1px solid #dddddd;">
            <tr>

@@ -12,7 +12,8 @@
          <h4 class="card-title">GUEST</h4>
          <p class="card-text">회원님 Welcome!</p>         
          <form action="${contextPath}/member/memLogin.do" method="post">
-           <div class="form-group">
+          <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
+          <div class="form-group">
 		    <label for="memID">아이디:</label>
 		    <input type="text" class="form-control" name="memID">
 		  </div>
