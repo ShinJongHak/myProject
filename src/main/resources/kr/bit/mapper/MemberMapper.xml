@@ -2,35 +2,62 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="kr.bit.mapper.MemberMapper">
 
+  <resultMap type="kr.bit.entity.Member" id="memberMap">
+		<id property="memIdx" column="memIdx"/>
+		<result property="memID" column="memID"/>
+		<result property="memPassword" column="memPassword"/>
+		<result property="memName" column="memName"/>
+		<result property="memAge" column="memAge"/>
+		<result property="memGender" column="memGender"/>
+		<result property="memEmail" column="memEmail"/>
+		<result property="memProfile" column="memProfile"/>
+		<collection property="authList" resultMap="authMap">
+		</collection>
+  </resultMap>
+	
+  <resultMap type="kr.bit.entity.AuthVO" id="authMap">
+		<id property="no" column="no"/>
+		<result property="memID" column="memID"/>
+		<result property="auth" column="auth"/>
+  </resultMap>
+  
 
   
- <select id="registerCheck" resultType="kr.bit.entity.Member">
-    select * from member where memID=#{memID}
- </select>
-  
- <insert id="register" parameterType="kr.bit.entity.Member">
-     insert into member(memID,memPassword,memName,memAge,memGender,memEmail,memProfile)
-     values(#{memID},#{memPassword},#{memName},#{memAge},#{memGender},#{memEmail},#{memProfile})
- </insert>
-  
- <select id="memLogin" parameterType="kr.bit.entity.Member" 
-                        resultType="kr.bit.entity.Member">
-     select * from member 
-     where memID=#{memID} and memPassword=#{memPassword}
- </select>
- 
- <select id="getMember" resultType="kr.bit.entity.Member">
+  <select id="registerCheck" resultType="kr.bit.entity.Member">
      select * from member where memID=#{memID}
- </select> 
+  </select>
+  
+  <insert id="register" parameterType="kr.bit.entity.Member">
+      insert into
+      member(memIdx,memID,memPassword,memName,memAge,memGender,memEmail,memProfile)
+      values((select IFNULL(MAX(memIdx)+1,1) from member mem) ,
+      #{memID},#{memPassword},#{memName},#{memAge},#{memGender},#{memEmail},#{memProfile})
+  </insert>
+  
+  <select id="memLogin" parameterType="kr.bit.entity.Member" 
+                        resultType="kr.bit.entity.Member">
+      select * from member 
+      where memID=#{memID} and memPassword=#{memPassword}
+  </select>
+ 
+  <!-- 회원,권한 join -->
+  <select id="getMember" resultMap="memberMap">
+     select * from member mem LEFT OUTER JOIN mem_auth auth on
+     mem.memID=auth.memID where mem.memID=#{memID}
+  </select>  
  
   <update id="memUpdate" parameterType="kr.bit.entity.Member">
-     update member set memPassword=#{memPassword}, memName=#{memName}, 
-            memAge=#{memAge},memGender=#{memGender},memEmail=#{memEmail} 
-            where memID=#{memID}      
+      update member set memPassword=#{memPassword}, memName=#{memName}, 
+             memAge=#{memAge},memGender=#{memGender},memEmail=#{memEmail} 
+             where memID=#{memID}      
   </update>
  
- <update id="memProfileUpdate" parameterType="kr.bit.entity.Member">
-     update member set memProfile=#{memProfile} where memID=#{memID}
- </update>
+  <update id="memProfileUpdate" parameterType="kr.bit.entity.Member">
+      update member set memProfile=#{memProfile} where memID=#{memID}
+  </update>
+ 
+  <insert id="authInsert" parameterType="kr.bit.entity.AuthVO">
+      INSERT INTO mem_auth(memID, auth) values(#{memID}, #{auth})   
+  </insert>
 
 </mapper>

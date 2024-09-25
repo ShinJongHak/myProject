@@ -2,6 +2,7 @@ package kr.bit.service;
 
 import java.util.List;
 
+import kr.bit.entity.AuthVO;
 import kr.bit.entity.Board;
 import kr.bit.entity.Criteria;
 

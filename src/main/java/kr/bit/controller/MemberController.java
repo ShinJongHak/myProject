@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.bit.service.MemberService;
+import kr.bit.entity.AuthVO;
 import kr.bit.entity.Member;
 
 @Controller
@@ -27,6 +29,9 @@ public class MemberController {
 	
 	@Autowired
 	public MemberService memberService;
+	
+	@Autowired 
+	PasswordEncoder pwEncoder;
 	
 	// 회원가입 페이지
 	@RequestMapping("/memJoinForm.do")
@@ -53,7 +58,7 @@ public class MemberController {
 		   memPassword1==null || memPassword1.equals("") ||
 		   memPassword2==null || memPassword2.equals("") ||
 		   m.getMemName()==null || m.getMemName().equals("") ||	
-		   m.getMemAge()==0 || 
+		   m.getMemAge()==0 ||  m.getAuthList().size() == 0 ||
 		   m.getMemGender()==null || m.getMemGender().equals("") ||
 		   m.getMemEmail()==null || m.getMemEmail().equals("")) {
 		   // 누락메세지를 가지고 가기? =>객체바인딩(Model, HttpServletRequest, HttpSession)
@@ -66,29 +71,41 @@ public class MemberController {
 		   rttr.addFlashAttribute("msg", "비밀번호가 서로 다릅니다.");
 		   return "redirect:/memJoin.do";  // ${msgType} , ${msg}
 		}		
-		m.setMemProfile(""); // 사진이미는 없다는 의미 ""
-		// 회원을 테이블에 저장하기
-		// 추가 : 비밀번호를 암호화 하기(API)
-	    /*String encyptPw=pwEncoder.encode(m.getMemPassword());
-	    m.setMemPassword(encyptPw);*/
-	    // register() 수정
+		m.setMemProfile(""); // 사진이미지는 없다는 의미
+		
+		// 비밀번호를 암호화 하기(API)
+	    String encyptPw=pwEncoder.encode(m.getMemPassword());
+	    m.setMemPassword(encyptPw);
 		
 			try {
 				int result=memberService.register(m);
+				
 				if(result==1) { // 회원가입 성공 메세지
-					   rttr.addFlashAttribute("msgType", "성공 메세지");
-					   rttr.addFlashAttribute("msg", "회원가입에 성공했습니다.");
-					   session.setAttribute("mvo", m);
-					   return "redirect:/";
+					   List<AuthVO> list=m.getAuthList();
+					   System.out.println(list);
+					   for(AuthVO authVO : list) {
+						   if(authVO.getAuth()!=null) {
+							   AuthVO saveVO=new AuthVO();
+							   saveVO.setMemID(m.getMemID()); //회원아이디
+							   saveVO.setAuth(authVO.getAuth()); //회원의권한
+							   System.out.println(saveVO);
+							   memberService.authInsert(saveVO);
+						   }
 				}
-					  
+					   
+				rttr.addFlashAttribute("msgType", "성공 메세지");
+			    rttr.addFlashAttribute("msg", "회원가입에 성공했습니다.");
+				Member mvo=memberService.getMember(m.getMemID());
+				session.setAttribute("mvo", mvo);
+				return "redirect:/";
+			 }
 			}
 			catch(DuplicateKeyException e){
 				 rttr.addFlashAttribute("msgType", "실패 메세지");
 				 rttr.addFlashAttribute("msg", "이미 존재하는 회원입니다.");
 				 return "redirect:/member/memJoin.do";
 			}
-		return "redirect:/memLoginForm.do";
+			return "redirect:/memLoginForm.do";
 	}
     
 	// 로그인 화면으로 이동(스프링시큐리티)

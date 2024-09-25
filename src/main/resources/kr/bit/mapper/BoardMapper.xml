@@ -25,21 +25,12 @@
   
   <insert id="insert" parameterType="kr.bit.entity.Board">
      insert into 
-       Board(idx,memID,title,content,writer,boardGroup,boardSequence,boardLevel,boardAvailable)
-		     select IFNULL(MAX(idx)+1, 1),#{memID},#{title},#{content},#{writer},
-		            IFNULL(MAX(boardGroup)+1, 0),0,0,1 
-		     from Board
+     board(idx,memID,title,content,writer,boardGroup,boardSequence,boardLevel,boardAvailable)
+	 values((select IFNULL(MAX(idx)+1, 1) from board b),#{memID},#{title},#{content},#{writer},
+		    (select IFNULL(MAX(boardGroup)+1, 0) from board b),0,0,1) 
+	       
   </insert>
   
-  <insert id="insertSelectKey" parameterType="kr.bit.entity.Board">
-  	<selectKey keyProperty="idx,boardGroup" resultType="kr.bit.entity.Board" order="BEFORE">
-  		select IFNULL(MAX(idx)+1, 1) as idx, IFNULL(MAX(idx)+1, 0) as boardGroup
-  		from board
-  	 </selectKey>
-  	insert into 
-    Board(idx, memID, title, content, writer, boardGroup, boardSequence, boardLevel, boardAvailable)
-	values(#{idx}, #{memID},#{title}, #{content}, #{writer},#{boardGroup},0,0,1)
-  </insert>
   
   <select id="login" parameterType="kr.bit.entity.Member" resultType="kr.bit.entity.Member">
   	select * from tblMember where memID=#{memID} and memPwd=#{memPwd}

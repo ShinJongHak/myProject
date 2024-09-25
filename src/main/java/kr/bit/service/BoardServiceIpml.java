@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import kr.bit.entity.AuthVO;
 import kr.bit.entity.Board;
 import kr.bit.entity.Criteria;
 import kr.bit.mapper.BoardMapper;
@@ -73,6 +74,8 @@ public class BoardServiceIpml implements BoardService{
 		boardMapper.replyInsert(vo);
 		
 	}
+
+	
 
 	
 

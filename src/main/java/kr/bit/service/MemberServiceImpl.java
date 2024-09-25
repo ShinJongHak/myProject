@@ -3,6 +3,7 @@ package kr.bit.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.bit.entity.AuthVO;
 import kr.bit.entity.Member;
 import kr.bit.mapper.MemberMapper;
 
@@ -46,6 +47,11 @@ public class MemberServiceImpl implements MemberService{
 		
 		return memberMapper.memUpdate(mvo);
 		
+	}
+
+	@Override
+	public void authInsert(AuthVO authVO) {
+		memberMapper.authInsert(authVO);
 	}
 
 }
