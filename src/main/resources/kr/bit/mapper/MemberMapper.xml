@@ -34,10 +34,11 @@
       #{memID},#{memPassword},#{memName},#{memAge},#{memGender},#{memEmail},#{memProfile})
   </insert>
   
-  <select id="memLogin" parameterType="kr.bit.entity.Member" 
-                        resultType="kr.bit.entity.Member">
-      select * from member 
-      where memID=#{memID} and memPassword=#{memPassword}
+  <select id="memLogin"  resultMap="memberMap">
+       select * 
+       from member mem LEFT OUTER JOIN mem_auth auth
+       on mem.memID=auth.memID 
+       where mem.memID=#{username}
   </select>
  
   <!-- 회원,권한 join -->
@@ -47,17 +48,21 @@
   </select>  
  
   <update id="memUpdate" parameterType="kr.bit.entity.Member">
-      update member set memPassword=#{memPassword}, memName=#{memName}, 
+     update member set memPassword=#{memPassword}, memName=#{memName}, 
              memAge=#{memAge},memGender=#{memGender},memEmail=#{memEmail} 
              where memID=#{memID}      
   </update>
  
   <update id="memProfileUpdate" parameterType="kr.bit.entity.Member">
-      update member set memProfile=#{memProfile} where memID=#{memID}
+     update member set memProfile=#{memProfile} where memID=#{memID}
   </update>
  
   <insert id="authInsert" parameterType="kr.bit.entity.AuthVO">
-      INSERT INTO mem_auth(memID, auth) values(#{memID}, #{auth})   
+     INSERT INTO mem_auth(memID, auth) values(#{memID}, #{auth})   
   </insert>
+  
+  <delete id="authDelete">
+     delete from mem_auth where memID=#{memID}
+  </delete>
 
 </mapper>

@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="mvo" value="${SPRING_SECURITY_CONTEXT.authentication.principal}"/> 
+<c:set var="auth" value="${SPRING_SECURITY_CONTEXT.authentication.authorities}"/> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +21,7 @@
     		var formData=$("#frm");
     		var btn=$(this).data("btn"); 
     		if(btn=='reply'){
-    			formData.attr("action", "${contextPath}/board/replyForm");
+    			formData.attr("action", "${contextPath}/board/replyForm.do");
     			
     		}else if(btn=='modify'){
     			formData.attr("action", "${contextPath}/board/modifyForm.do");
@@ -65,16 +67,16 @@
 	  		
 	  		<tr>
 	  			<td colspan="2" align="center">
-	  			<c:if test="${!empty mvo && mvo.memID eq vo.memID}">
+	  			<c:if test="${!empty mvo.member && mvo.member.memID eq vo.memID}">
 	  			  <button type="button" data-btn="modify" class="btn-primary btn-sm">수정화면</button>
 	  			  <button type="button" data-btn="remove" class="btn-warning btn-sm">삭제</button>
 	  			  <button type="button" data-btn="list" class="btn-primary btn-sm">리스트</button>
 	  			</c:if>
-	  			<c:if test="${!empty mvo && mvo.memID ne vo.memID}">
+	  			<c:if test="${!empty mvo.member && mvo.member.memID ne vo.memID}">
 	  			  <button type="button" data-btn="reply" class="btn-primary btn-sm">답글</button>
 	  			  <button type="button" data-btn="list" class="btn-primary btn-sm">리스트</button>
 	  			</c:if>
-	  			<c:if test="${empty mvo}">
+	  			<c:if test="${empty mvo.member}">
 	  			  <button type="button" data-btn="list" class="btn-primary btn-sm">리스트</button>
 	  			</c:if>
 	  			</td>

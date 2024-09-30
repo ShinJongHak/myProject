@@ -61,15 +61,14 @@ public class MemberController {
 		   m.getMemAge()==0 ||  m.getAuthList().size() == 0 ||
 		   m.getMemGender()==null || m.getMemGender().equals("") ||
 		   m.getMemEmail()==null || m.getMemEmail().equals("")) {
-		   // 누락메세지를 가지고 가기? =>객체바인딩(Model, HttpServletRequest, HttpSession)
 		   rttr.addFlashAttribute("msgType", "실패 메세지");
 		   rttr.addFlashAttribute("msg", "모든 내용을 입력하세요.");
-		   return "redirect:/memJoin.do";  // ${msgType} , ${msg}
+		   return "redirect:/memJoin.do";  
 		}
 		if(!memPassword1.equals(memPassword2)) {
 		   rttr.addFlashAttribute("msgType", "실패 메세지");
 		   rttr.addFlashAttribute("msg", "비밀번호가 서로 다릅니다.");
-		   return "redirect:/memJoin.do";  // ${msgType} , ${msg}
+		   return "redirect:/memJoin.do";  
 		}		
 		m.setMemProfile(""); // 사진이미지는 없다는 의미
 		
@@ -116,35 +115,7 @@ public class MemberController {
 		
     }
     
-    // 로그인 기능 구현
- 	@RequestMapping("/memLogin.do")
- 	public String memLogin(Member m, RedirectAttributes rttr, HttpSession session) {
- 		if(m.getMemID()==null || m.getMemID().equals("") ||
- 		   m.getMemPassword()==null || m.getMemPassword().equals("")) {
- 		   rttr.addFlashAttribute("msgType", "실패 메세지");
- 		   rttr.addFlashAttribute("msg", "모든 내용을 입력해주세요.");
- 		   return "redirect:/member/memLoginForm.do";			
- 		}
- 		Member mvo=memberService.memLogin(m);
- 		if(mvo!=null) { // 로그인에 성공
- 		   rttr.addFlashAttribute("msgType", "성공 메세지");
- 		   rttr.addFlashAttribute("msg", "로그인에 성공했습니다.");
- 		   session.setAttribute("mvo", mvo); // ${!empty mvo}
- 		   return "redirect:/";	 // 메인		
- 		}else { // 로그인에 실패
- 			System.out.println("실패");
- 		   rttr.addFlashAttribute("msgType", "실패 메세지");
- 		   rttr.addFlashAttribute("msg", "다시 로그인 해주세요.");
- 		   return "redirect:/member/memLoginForm.do";
- 		}		
- 	}
-    
-    // 로그아웃 처리
- 	@RequestMapping("/memLogout.do")
- 	public String memLogout(HttpSession session) {
- 		session.invalidate();
- 		return "redirect:/";
- 	}
+   
  	
  	// 사진등록 페이지
  	@RequestMapping("/memImageForm.do")
@@ -167,27 +138,41 @@ public class MemberController {
  		   memPassword1==null || memPassword1.equals("") ||
  		   memPassword2==null || memPassword2.equals("") ||
  		   m.getMemName()==null || m.getMemName().equals("") ||	
- 		   m.getMemAge()==0 ||
+ 		   m.getMemAge()==0 || m.getAuthList().size() == 0 ||
  		   m.getMemGender()==null || m.getMemGender().equals("") ||
  		   m.getMemEmail()==null || m.getMemEmail().equals("")) {
- 		   // 누락메세지를 가지고 가기? =>객체바인딩(Model, HttpServletRequest, HttpSession)
  		   rttr.addFlashAttribute("msgType", "실패 메세지");
  		   rttr.addFlashAttribute("msg", "모든 내용을 입력하세요.");
- 		   return "redirect:/member/memUpdateForm.do";  // ${msgType} , ${msg}
+ 		   return "redirect:/member/memUpdateForm.do";  
  		}
  		if(!memPassword1.equals(memPassword2)) {
  		   rttr.addFlashAttribute("msgType", "실패 메세지");
  		   rttr.addFlashAttribute("msg", "비밀번호가 서로 다릅니다.");
- 		   return "redirect:/member/memUpdateForm.do";  // ${msgType} , ${msg}
+ 		   return "redirect:/member/memUpdateForm.do"; 
  		}		
  		// 회원을 수정저장하기
+ 		String encyptPw=pwEncoder.encode(m.getMemPassword());
+		m.setMemPassword(encyptPw);
  		int result=memberService.memUpdate(m);
  		if(result==1) { // 수정성공 메세지
+ 		   // 기존권한을 삭제하고
+ 			memberService.authDelete(m.getMemID());
+ 			
+    	   // 새로운 권한을 추가하기	
+ 		   List<AuthVO> list=m.getAuthList();			
+ 		   for(AuthVO authVO : list) { 
+ 				  if(authVO.getAuth()!=null) { 
+ 						  AuthVO saveVO=new AuthVO();
+ 				          saveVO.setMemID(m.getMemID()); 
+ 				          saveVO.setAuth(authVO.getAuth());
+ 				          memberService.authInsert(saveVO); 
+ 			      } 
+            }
  		   rttr.addFlashAttribute("msgType", "성공 메세지");
  		   rttr.addFlashAttribute("msg", "회원정보 수정에 성공했습니다.");
  		   // 회원수정이 성공하면=>로그인처리하기
  		   Member mvo = memberService.getMember(m.getMemID());
- 		   session.setAttribute("mvo", mvo); // ${!empty mvo}
+ 		   session.setAttribute("mvo", mvo); 
  		   return "redirect:/";
  		}else {
  		   rttr.addFlashAttribute("msgType", "실패 메세지");
@@ -202,9 +187,9 @@ public class MemberController {
 	public String memImageUpdate(HttpServletRequest request,HttpSession session, RedirectAttributes rttr) throws IOException {
 		// 파일업로드 API(cos.jar, 3가지)
 		MultipartRequest multi=null;
-		int fileMaxSize=40*1024*1024; // 10MB		
-		String savePath=request.getRealPath("resources/upload"); // 1.png
-		try {                                                                        // 1_1.png
+		int fileMaxSize=40*1024*1024; 	
+		String savePath=request.getRealPath("resources/upload");
+		try {                                                                      
 			// 이미지 업로드
 			multi=new MultipartRequest(request, savePath, fileMaxSize, "UTF-8",new DefaultFileRenamePolicy());
 		

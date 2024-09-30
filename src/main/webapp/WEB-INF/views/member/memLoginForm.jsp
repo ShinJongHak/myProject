@@ -14,9 +14,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
-  	if(${!empty msgType}){
-  		$("#myMessage").modal("show");
-  	}
+	  if(${param.error!=null}){
+	   		$(".modal-body").text("아이디와 비밀번호를 확인해주세요");
+	   		$(".modal-title").text("실패 메시지");
+	  		$("#myMessage").modal("show");
+		}
   });
   </script>
 </head>
@@ -28,16 +30,16 @@
    <div class="card">
      <div class="card-header">로그인화면</div>
      <div class="card-body">
-       <form action="${contextPath}/member/memLogin.do" method="post">
+       <form action="${contextPath}/memLogin.do" method="post">
        <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	      <table class="table table-bordered" style="text-align: center; border: 1px solid #dddddd;">
 	         <tr>
 	           <td style="width: 110px; vertical-align: middle;">아이디</td>
-	           <td><input id="memID" name="memID" class="form-control" type="text" maxlength="20" placeholder="아이디를 입력하세요."/></td>
+	           <td><input id="memID" name="username" class="form-control" type="text" maxlength="20" placeholder="아이디를 입력하세요."/></td>
 	         </tr>
 	         <tr>
 	           <td style="width: 110px; vertical-align: middle;">비밀번호</td>
-	           <td colspan="2"><input id="memPassword" name="memPassword" class="form-control" type="password" maxlength="20" placeholder="비밀번호를 입력하세요."/></td>            
+	           <td colspan="2"><input name="password" class="form-control" type="password" maxlength="20" placeholder="비밀번호를 입력하세요."/></td>            
 	         </tr>      
 	         <tr>
 	           <td colspan="2" style="text-align: left;">

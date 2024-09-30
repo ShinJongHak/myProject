@@ -52,6 +52,7 @@ public class BoardController{
 	@RequestMapping("/get.do")
 	public String getForm(@RequestParam("idx") int idx, Criteria cri, Model model) {
 		Board vo = boardService.get(idx);
+		boardService.boardCount(idx); //조회수
 		model.addAttribute("vo", vo);
 		model.addAttribute("cri", cri);
 		return "board/get";
@@ -91,7 +92,7 @@ public class BoardController{
 		return "redirect:/board/list.do";
 	}
 	
-	@RequestMapping("/replyForm")
+	@RequestMapping("/replyForm.do")
 	public String replyForm(@RequestParam("idx") int idx, Model model, Criteria cri) {
 		Board vo = boardService.get(idx);
 		model.addAttribute("vo", vo);
@@ -101,7 +102,7 @@ public class BoardController{
 		
 	}
 	
-	@RequestMapping("/reply")
+	@RequestMapping("/reply.do")
 	public String reply(Board vo, Criteria cri, RedirectAttributes rttr) {
 		boardService.replyProcess(vo);
 		rttr.addAttribute("page", cri.getPage());

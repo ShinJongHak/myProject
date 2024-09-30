@@ -16,10 +16,10 @@ public interface BoardMapper {
 	public Board read(int idx);
 	public void update(Board vo);
 	public void delete(int idx);
+	public void boardCount(int idx);
 	public void replySeqUpdate(Board parent);
 	public void replyInsert(Board vo);
 	public int totalCount(Criteria cri);
 	public void boardCount(Board vo);
-	public Member login(Member vo);
 	
 }

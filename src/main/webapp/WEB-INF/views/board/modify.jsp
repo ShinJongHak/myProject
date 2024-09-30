@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="mvo" value="${SPRING_SECURITY_CONTEXT.authentication.principal}"/> 
+<c:set var="auth" value="${SPRING_SECURITY_CONTEXT.authentication.authorities}"/> 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -68,7 +71,7 @@
 		  		</tr>
 		  		<tr>
 		  			<td>작성자</td>
-		  			<td>${mvo.memID}</td>	
+		  			<td>${mvo.member.memID}</td>	
 		  		</tr>
 		  		
 		  		<tr>

@@ -52,8 +52,8 @@
   	where idx=#{idx} 
   </update>
   
-  <update id="boardCount" parameterType="kr.bit.entity.Board">
-  	update board set count= #{count}+1
+  <update id="boardCount">
+  	update board set count= count+1
   	where idx=#{idx}
   </update>
   

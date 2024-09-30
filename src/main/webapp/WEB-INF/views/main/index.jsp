@@ -20,10 +20,6 @@
   <link href="${contextPath}/resources/css/image.css" rel="stylesheet">
   <script type="text/javascript">
     $(document).ready(function(){
-    	if(${!empty msgType}){
-    		$("#myMessage").modal("show");
-    	}
-    	
     	var pageFrm=$("#pageFrm");
     	$(".move").on("click", function(e){
     		e.preventDefault();

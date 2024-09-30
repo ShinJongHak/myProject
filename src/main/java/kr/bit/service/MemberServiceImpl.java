@@ -26,8 +26,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public Member memLogin(Member m) {
-		Member mvo = memberMapper.memLogin(m);
+	public Member memLogin(String username) {
+		Member mvo = memberMapper.memLogin(username);
 		return mvo;
 	}
 
@@ -52,6 +52,12 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void authInsert(AuthVO authVO) {
 		memberMapper.authInsert(authVO);
+	}
+
+	@Override
+	public void authDelete(String memID) {
+		memberMapper.authDelete(memID);
+		
 	}
 
 }

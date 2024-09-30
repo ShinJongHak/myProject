@@ -54,6 +54,11 @@ public class BoardServiceIpml implements BoardService{
 		boardMapper.delete(idx);
 		
 	}
+	
+	@Override
+	public void boardCount(int idx) {
+		boardMapper.boardCount(idx);
+	}
 
 	@Override
 	public void replyProcess(Board vo) {
@@ -74,6 +79,7 @@ public class BoardServiceIpml implements BoardService{
 		boardMapper.replyInsert(vo);
 		
 	}
+
 
 	
 

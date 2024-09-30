@@ -4,6 +4,8 @@
 <%@taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="mvo" value="${SPRING_SECURITY_CONTEXT.authentication.principal}"/> 
+<c:set var="auth" value="${SPRING_SECURITY_CONTEXT.authentication.authorities}"/> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +25,7 @@
   			formData.attr("action", "${contextPath}/board/reply");
   		}else if(btn=='list'){   
   			var formData1=$("#frm1");
-  			formData1.attr("action", "${contextPath}/board/list");    		   
+  			formData1.attr("action", "${contextPath}/board/list.do");    		   
   			formData1.submit();   
   			return;
   		}else if(btn=='reset'){
@@ -50,7 +52,7 @@
         <input type="hidden" name="keyword" value="<c:out value='${cri.keyword}'/>"/>     
         <!--  idx(원글,부모글) -->
         <input type="hidden" name="idx" value="${vo.idx}"/>
-        <input type="hidden" name="memID" value="${mvo.memID}"/>
+        <input type="hidden" name="memID" value="${mvo.member.memID}"/>
         <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="form-group">
            <label>제목</label>
@@ -62,7 +64,7 @@
         </div>
         <div class="form-group">
            <label>작성자</label>
-           <input type="text" readonly="readonly" name="writer" class="form-control" value="${mvo.memName}">
+           <input type="text" readonly="readonly" name="writer" class="form-control" value="${mvo.member.memName}">
         </div>
         <button type="button" data-btn="reply" class="btn-primary btn-sm">답변</button>
         <button type="button" data-btn="reset" class="btn-primary btn-sm">취소</button>

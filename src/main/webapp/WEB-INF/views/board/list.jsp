@@ -4,6 +4,8 @@
 <%@taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="mvo" value="${SPRING_SECURITY_CONTEXT.authentication.principal}"/> 
+<c:set var="auth" value="${SPRING_SECURITY_CONTEXT.authentication.authorities}"/> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,12 +67,12 @@
 <div class="container listCt" >
   <div class="card">
     <div class="card-header" >
-       <c:if test="${empty mvo}">
+       <c:if test="${empty mvo.member}">
 	     GUEST님 방문을 환영합니다.
 	   </c:if>
-	   <c:if test="${!empty mvo}">
+	   <c:if test="${!empty mvo.member}">
 		  <div class="form-group">
-		    <label>${mvo.memName}님 방문을 환영합니다.</label>		    
+		    <label>${mvo.member.memName}님 방문을 환영합니다.</label>		    
 		  </div>
 	   </c:if>
     </div>
@@ -116,12 +118,12 @@
             <td>${vo.count}</td>
           </tr>
         </c:forEach>
-        <c:if test="${!empty mvo}"> 
-          <tr>
-            <td colspan="5">
-              <button id="regBtn" class="btn-primary btn-sm float-right">글쓰기</button>            
-            </td>
-          </tr>
+        <c:if test="${!empty mvo.member}"> 
+           <tr>
+              <td colspan="5">
+                <button id="regBtn" class="btn-primary btn-sm float-right">글쓰기</button>            
+              </td>
+           </tr>
         </c:if>
       </table>
       
