@@ -58,27 +58,7 @@
 	    <li class="nav-item">
 	      <a class="nav-link" href="javascript:logout()">로그아웃</a>
 	    </li>
-	    <c:if test="${!empty mvo.member}">
-          <c:if test="${empty mvo.member.memProfile}">
-			 <li><img class="img-circle" src="${contextPath}/resources/images/basic.PNG" style="width: 50px; height: 50px";/>
-		  </c:if>
-		  <c:if test="${!empty mvo.member.memProfile}">
-			 <li><img class="img-circle" src="${contextPath}/resources/upload/${mvo.member.memProfile}" style="width: 50px; height: 50px";/>
-		  </c:if>	
-		   ${mvo.member.memName}님
-			     (
-			     <security:authorize access="hasRole('ROLE_USER')"> 
-			       U,
-			     </security:authorize> 
-			     <security:authorize access="hasRole('ROLE_MANAGER')"> 
-			       M,
-			     </security:authorize>  
-			     <security:authorize access="hasRole('ROLE_ADMIN')">
-			       A
-			     </security:authorize>
-			      )		
-		  </li>  
-       </c:if>
+	    
 	  </ul>
 	</c:if>		
   </div>

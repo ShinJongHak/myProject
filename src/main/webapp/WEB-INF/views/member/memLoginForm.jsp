@@ -31,7 +31,7 @@
      <div class="card-header">로그인화면</div>
      <div class="card-body">
        <form action="${contextPath}/memLogin.do" method="post">
-       <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
+          <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	      <table class="table table-bordered" style="text-align: center; border: 1px solid #dddddd;">
 	         <tr>
 	           <td style="width: 110px; vertical-align: middle;">아이디</td>

@@ -71,9 +71,7 @@
 	     GUEST님 방문을 환영합니다.
 	   </c:if>
 	   <c:if test="${!empty mvo.member}">
-		  <div class="form-group">
-		    <label>${mvo.member.memName}님 방문을 환영합니다.</label>		    
-		  </div>
+		  ${mvo.member.memID}님 방문을 환영합니다.	    
 	   </c:if>
     </div>
     <div class="card-body">
@@ -140,7 +138,7 @@
 		      
 		      <!-- 페이지번호 처리 -->
 		       <c:forEach var="pageNum" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-	             <li class="page-item  paginate_button ${pageMaker.cri.page==pageNum ? 'active' : ''}"><a class="page-link" href="${pageNum}">${pageNum}</a></li>
+	             <li class="page-item paginate_button ${pageMaker.cri.page==pageNum ? 'active' : ''}"><a class="page-link" href="${pageNum}">${pageNum}</a></li>
 		       </c:forEach> 
 		       
 		      <!-- 다음처리 -->
@@ -156,15 +154,16 @@
        <!-- 검색메뉴 -->
        <div style="text-align: center;">
 		<form class="form-inline" action="${contextPath}/board/list.do" method="post">
+	      <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		  <div class="form-group">	
-		   <select name="type" class="form-control">
+		    <select name="type" class="form-control">
 		      <option value="writer" ${pageMaker.cri.type=='writer' ? 'selected' : ''}>이름</option>
 		      <option value="title" ${pageMaker.cri.type=='title' ? 'selected' : ''}>제목</option>
 		      <option value="content" ${pageMaker.cri.type=='content' ? 'selected' : ''}>내용</option>
-		   </select>
+		    </select>
 		  </div>
 		  <div class="form-group">	
-		    <input type="text" class="form-control" name="keyword" value="${pageMaker.cri.keyword}">
+		     <input type="text" class="form-control" name="keyword" value="${pageMaker.cri.keyword}">
 		  </div>
 		  <button type="submit" class="btn btn-success">검색</button>
 		</form>
@@ -176,6 +175,7 @@
          <input type="hidden" name="perPageNum" value="${pageMaker.cri.perPageNum}"/>
          <input type="hidden" name="type" value="${pageMaker.cri.type}"/>
          <input type="hidden" name="keyword" value="${pageMaker.cri.keyword}"/>
+         <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
       </form>      
       
     </div>

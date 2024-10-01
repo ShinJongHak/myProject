@@ -22,7 +22,7 @@
   		var formData=$("#frm");
   		var btn=$(this).data("btn"); // data-btn="list"
   		if(btn=='reply'){
-  			formData.attr("action", "${contextPath}/board/reply");
+  			formData.attr("action", "${contextPath}/board/reply.do");
   		}else if(btn=='list'){   
   			var formData1=$("#frm1");
   			formData1.attr("action", "${contextPath}/board/list.do");    		   

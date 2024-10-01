@@ -9,6 +9,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +26,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kr.bit.service.MemberService;
 import kr.bit.entity.AuthVO;
 import kr.bit.entity.Member;
+import kr.bit.entity.MemberUser;
+import kr.bit.security.MemberUserDetailsService;
 
 @Controller
 @RequestMapping("/member/*")
@@ -32,6 +38,9 @@ public class MemberController {
 	
 	@Autowired 
 	PasswordEncoder pwEncoder;
+	
+	@Autowired
+	MemberUserDetailsService memberUserDetailsService;
 	
 	// 회원가입 페이지
 	@RequestMapping("/memJoinForm.do")
@@ -170,9 +179,10 @@ public class MemberController {
             }
  		   rttr.addFlashAttribute("msgType", "성공 메세지");
  		   rttr.addFlashAttribute("msg", "회원정보 수정에 성공했습니다.");
- 		   // 회원수정이 성공하면=>로그인처리하기
- 		   Member mvo = memberService.getMember(m.getMemID());
- 		   session.setAttribute("mvo", mvo); 
+ 		  // 회원수정이 성공하면=>로그인처리하기
+		   Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		   MemberUser userAccount = (MemberUser) authentication.getPrincipal();
+		   SecurityContextHolder.getContext().setAuthentication(createNewAuthentication(authentication,userAccount.getMember().getMemID()));
  		   return "redirect:/";
  		}else {
  		   rttr.addFlashAttribute("msgType", "실패 메세지");
@@ -229,13 +239,30 @@ public class MemberController {
 		mvo.setMemID(memID);
 		mvo.setMemProfile(newProfile);
 		memberService.memProfileUpdate(mvo); // 이미지 업데이트 성공
-		Member m=memberService.getMember(memID);
-		// 세션을 새롭게 생성한다.
-		session.setAttribute("mvo", m);
+		
+		// 스프링보안(새로운 인증 세션을 생성->객체바인딩)
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		MemberUser userAccount = (MemberUser) authentication.getPrincipal();
+	    SecurityContextHolder.getContext().setAuthentication(createNewAuthentication(authentication,userAccount.getMember().getMemID()));
+	    
 		rttr.addFlashAttribute("msgType", "성공 메세지");
 		rttr.addFlashAttribute("msg", "이미지 변경이 성공했습니다.");	
 		return "redirect:/";
 	}	
+	
+	 // 스프링 보안(새로운 세션 생성 메서드)
+	 // UsernamePasswordAuthenticationToken -> 회원정보+권한정보
+	 protected Authentication createNewAuthentication(Authentication currentAuth, String username) {
+		    UserDetails newPrincipal = memberUserDetailsService.loadUserByUsername(username);
+		    UsernamePasswordAuthenticationToken newAuth = new UsernamePasswordAuthenticationToken(newPrincipal, currentAuth.getCredentials(), newPrincipal.getAuthorities());
+		    newAuth.setDetails(currentAuth.getDetails());	    
+		    return newAuth;
+	 }
+		
+	 @RequestMapping("/access-denied")
+	 public String showAccessDenied() {
+	   	return "access-denied";
+	 }
      
 	
 }

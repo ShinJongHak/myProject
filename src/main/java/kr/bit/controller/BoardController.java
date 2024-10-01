@@ -27,13 +27,13 @@ public class BoardController{
 	
 	@RequestMapping("/list.do")
 	public String getList(Criteria cri, Model model) {
-		System.out.println("검색");
 		List<Board> list=boardService.getList(cri);
 		model.addAttribute("list", list); 
 		PageMaker pageMaker=new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(boardService.totalCount(cri));
-		model.addAttribute("pageMaker", pageMaker);		
+		model.addAttribute("pageMaker", pageMaker);	
+		System.out.println("검색11");
 		return "board/list"; 
  	}
 	

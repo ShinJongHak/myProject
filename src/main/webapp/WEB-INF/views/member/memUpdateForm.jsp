@@ -70,11 +70,11 @@
            </tr>
             <tr>
              <td style="width: 130px; vertical-align: middle;">사용자 이름</td>
-             <td colspan="2"><input id="memName" name="memName" class="form-control" type="text" maxlength="20" placeholder="이름을 입력하세요." value="${mvo.memName}"/></td>            
+             <td colspan="2"><input id="memName" name="memName" class="form-control" type="text" maxlength="20" placeholder="이름을 입력하세요." value="${mvo.member.memName}"/></td>            
            </tr>
            <tr>
              <td style="width: 130px; vertical-align: middle;">나이</td>
-             <td colspan="2"><input id="memAge" name="memAge" class="form-control" type="number" maxlength="20" placeholder="나이를 입력하세요." value="${mvo.memAge}"/></td>            
+             <td colspan="2"><input id="memAge" name="memAge" class="form-control" type="number" maxlength="20" placeholder="나이를 입력하세요." value="${mvo.member.memAge}"/></td>            
            </tr>
            <tr>
              <td style="width: 130px; vertical-align: middle;">성별</td>
@@ -85,7 +85,7 @@
                          <input type="radio"  name="memGender" autocomplete="off" value="남자" 
                            <c:if test="${mvo.member.memGender eq '남자'}"> checked</c:if> /> 남자
                        </label>
-                        <label class="btn btn-primary <c:if test="${mvo.memGender eq '여자'}"> active</c:if>">
+                        <label class="btn btn-primary <c:if test="${mvo.member.memGender eq '여자'}"> active</c:if>">
                          <input type="radio"  name="memGender" autocomplete="off" value="여자"
                            <c:if test="${mvo.member.memGender eq '여자'}"> checked</c:if> /> 여자
                        </label>
@@ -95,7 +95,7 @@
            </tr> 
            <tr>
              <td style="width: 130px; vertical-align: middle;">이메일</td>
-             <td colspan="2"><input id="memEmail" name="memEmail" class="form-control" type="text" maxlength="20" placeholder="이메일을 입력하세요." value="${mvo.memEmail}"/></td>            
+             <td colspan="2"><input id="memEmail" name="memEmail" class="form-control" type="text" maxlength="20" placeholder="이메일을 입력하세요." value="${mvo.member.memEmail}"/></td>            
            </tr>
            <tr>
              <td style="width: 130px; vertical-align: middle;">사용자 권한</td>

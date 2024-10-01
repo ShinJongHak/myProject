@@ -16,21 +16,41 @@
          <c:if test="${empty mvo.member}">
 	         <h4 class="card-title">GUEST</h4>
 	         <form action="${contextPath}/memLogin.do" method="post">
-	           <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	            <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	            <div class="form-group">
 			      <label for="memID">아이디:</label>
-			      <input type="text" class="form-control" name="memID">
+			      <input type="text" class="form-control" name="username">
 			    </div>
 			    <div class="form-group">
 			      <label for="memPwd">비밀번호:</label>
-			      <input type="password" class="form-control" name="memPassword">
+			      <input type="password" class="form-control" name="password">
 			    </div>
 			    <button type="submit" class="btn btn-primary form-control">로그인</button>
 	         </form>
          </c:if>
          <c:if test="${!empty mvo.member}">
-	         <h4 class="card-title">${mvo.member.memName}</h4>
-	         <p class="card-text">회원님 Welcome!</p>
+	         <h5 class="jua-regular">${mvo.member.memID} 님 환영합니다.</h5>
+          <c:if test="${empty mvo.member.memProfile}">
+			 <img class="img-circle" src="${contextPath}/resources/images/basic.PNG" style="width: 50px; height: 50px";/>
+		  </c:if>
+		  <c:if test="${!empty mvo.member.memProfile}">
+			 <img class="img-circle" src="${contextPath}/resources/upload/${mvo.member.memProfile}" style="width: 50px; height: 50px";/>
+		  </c:if>	
+		  
+			 <span class="jua-regular">( </span>
+			 
+			 <security:authorize access="hasRole('ROLE_USER')"> 
+			    <span class="jua-regular">  U,</span>
+			 </security:authorize> 
+			  <security:authorize access="hasRole('ROLE_MANAGER')"> 
+			    <span class="jua-regular">  M,</span>
+			 </security:authorize>  
+			 <security:authorize access="hasRole('ROLE_ADMIN')">
+			    <span class="jua-regular">  A</span>
+			 </security:authorize>
+			 
+			 <span class="jua-regular"> )</span>
+		  
 			 <form action="${contextPath}/logout" method="post">
 			    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>		  
 			      <button type="submit" class="btn btn-primary form-control">로그아웃</button>
