@@ -12,10 +12,10 @@ public class Criteria {
   
   public Criteria() {
 	  this.page=1;
-	  this.perPageNum=5; // 조정	  
+	  this.perPageNum=5;   
   }
   // 현재 페이지의 게시글의 시작번호
-  public int getPageStart() {     // 1page  2page  3page
-	  return (page-1)*perPageNum; // 0~     10~    20~   : limit ${pageStart},#{perPageNum}
+  public int getPageStart() {     
+	  return (page-1)*perPageNum; 
   }  
 }

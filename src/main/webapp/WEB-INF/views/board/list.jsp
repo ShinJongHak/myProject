@@ -16,7 +16,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/resources/css/list.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/main.css" >
   <script type="text/javascript">
      $(document).ready(function(){
     	var result='${result}'; 
@@ -64,7 +64,7 @@
 <header>
   <jsp:include page="../common/header.jsp"/>
 </header>
-<div class="container listCt" >
+<div class="container main" >
   <div class="card">
     <div class="card-header" >
        <c:if test="${empty mvo.member}">
@@ -111,7 +111,7 @@
                 </c:if>
               </c:if>
             </td>
-            <td>${vo.writer}</td>
+            <td>${vo.memID}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${vo.indate}"/></td>
             <td>${vo.count}</td>
           </tr>

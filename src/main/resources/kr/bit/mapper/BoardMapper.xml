@@ -31,12 +31,6 @@
 	       
   </insert>
   
-  
-  <select id="login" parameterType="kr.bit.entity.Member" resultType="kr.bit.entity.Member">
-  	select * from tblMember where memID=#{memID} and memPwd=#{memPwd}
-  </select>
-  
-  
   <select id="read" parameterType="int" resultType="kr.bit.entity.Board">
   select * from board 
   where idx=#{idx}

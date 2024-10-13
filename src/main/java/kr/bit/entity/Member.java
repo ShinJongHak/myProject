@@ -14,6 +14,6 @@ public class Member {
 	  private int memAge; 
 	  private String memGender;
 	  private String memEmail;
-	  private String memProfile; //사진정보
+	  private String memProfile; 
 	  private List<AuthVO> authList; 
 }

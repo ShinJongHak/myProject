@@ -18,6 +18,7 @@ public class MainController {
 	@Autowired
 	BoardService boardService;
 	
+	// 메인페이지
 	@RequestMapping("/")
 	public String index(Criteria cri, Model model) {
 		List<Board> list=boardService.getList(cri);

@@ -18,12 +18,12 @@
 	         <form action="${contextPath}/memLogin.do" method="post">
 	            <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	            <div class="form-group">
-			      <label for="memID">아이디:</label>
-			      <input type="text" class="form-control" name="username">
+			      <label for="username">아이디:</label>
+			      <input type="text" id="username" class="form-control" name="username">
 			    </div>
 			    <div class="form-group">
-			      <label for="memPwd">비밀번호:</label>
-			      <input type="password" class="form-control" name="password">
+			      <label for="password">비밀번호:</label>
+			      <input type="password" id="password" class="form-control" name="password">
 			    </div>
 			    <button type="submit" class="btn btn-primary form-control">로그인</button>
 	         </form>
@@ -31,10 +31,10 @@
          <c:if test="${!empty mvo.member}">
 	         <h5 class="jua-regular">${mvo.member.memID} 님 환영합니다.</h5>
           <c:if test="${empty mvo.member.memProfile}">
-			 <img class="img-circle" src="${contextPath}/resources/images/basic.PNG" style="width: 50px; height: 50px";/>
+			 <img class="img-circle" src="${contextPath}/resources/images/basic.PNG" style="width: 100px; height: 100px";/>
 		  </c:if>
 		  <c:if test="${!empty mvo.member.memProfile}">
-			 <img class="img-circle" src="${contextPath}/resources/upload/${mvo.member.memProfile}" style="width: 50px; height: 50px";/>
+			 <img class="img-circle" src="${contextPath}/resources/upload/${mvo.member.memProfile}" style="width: 100px; height: 100px";/>
 		  </c:if>	
 		  
 			 <span class="jua-regular">( </span>
@@ -53,7 +53,7 @@
 		  
 			 <form action="${contextPath}/logout" method="post">
 			    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>		  
-			      <button type="submit" class="btn btn-primary form-control">로그아웃</button>
+			      <button type="submit" class="btn btn-primary form-control" style="margin-top: 20px;">로그아웃</button>
 			 </form>
 		</c:if>
        </div>
@@ -62,7 +62,7 @@
    <div class="row">
      <div class="col-lg-12">
        <div class="card-body">
-         <p class="card-text">MAP VIEW</p>
+         <h5 class="card-text">MAP VIEW</h5>
          <div class="input-group mb-3">
              <input type="text" class="form-control" id="address" placeholder="Search"/>
              <div class="input-group-append">

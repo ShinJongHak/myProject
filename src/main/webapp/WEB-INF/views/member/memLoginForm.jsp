@@ -12,6 +12,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/main.css">
+  <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/footer.css">
   <script type="text/javascript">
   $(document).ready(function(){
 	  if(${param.error!=null}){
@@ -26,7 +28,7 @@
 <header>
   <jsp:include page="../common/header.jsp"/>
 </header>
-<div class="container">
+<div class="container main">
    <div class="card">
      <div class="card-header">로그인화면</div>
      <div class="card-body">

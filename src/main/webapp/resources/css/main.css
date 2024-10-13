@@ -1,0 +1,16 @@
+@charset "UTF-8";
+	
+	*{
+	  margin: 0;
+	  padding: 0;
+	}
+	
+	.main{
+	  margin: 100px auto 0px;
+      min-height: calc(100vh - 10rem); /* footer 높이를 빼준다. (footer 고정) */
+	}
+	
+	
+	
+
+	

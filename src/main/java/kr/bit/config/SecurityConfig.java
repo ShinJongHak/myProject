@@ -23,6 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	public UserDetailsService memberUserDetailsService() {
 	   return new MemberUserDetailsService();
 	}
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(memberUserDetailsService())
@@ -32,7 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		//요청에대한 보안 설정
 		CharacterEncodingFilter filter = new CharacterEncodingFilter();
 		filter.setEncoding("UTF-8");
 		filter.setForceEncoding(true);

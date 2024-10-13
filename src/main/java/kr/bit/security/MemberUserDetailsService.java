@@ -18,9 +18,8 @@ public class MemberUserDetailsService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Member mvo=memberMapper.memLogin(username);
-		//-->UserDetails -> implements--->User -> extends--->MemberUser
 		if(mvo != null) {
-			return new MemberUser(mvo); // new MemberUser(mvo); // Member, AuthVO
+			return new MemberUser(mvo);
 		}else {
 	   	   throw new UsernameNotFoundException("user with username" + username + "does not exist."); 	
 		}

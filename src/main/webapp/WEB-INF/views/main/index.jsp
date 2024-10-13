@@ -16,8 +16,9 @@
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=133293f1913c5a99ebacd5c899673ffe"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-  <link href="${contextPath}/resources/css/font.css" rel="stylesheet">
-  <link href="${contextPath}/resources/css/image.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="${contextPath}/resources/css/font.css" >
+  <link rel="stylesheet" href="${contextPath}/resources/css/image.css" >
   <script type="text/javascript">
     $(document).ready(function(){
     	var pageFrm=$("#pageFrm");
@@ -136,7 +137,7 @@
 <header>
   <jsp:include page="../common/header.jsp"/>
 </header>
-<div class="card">
+<div class="card main">
 	<div class="visual">
 	  <img alt="img" src="${contextPath}/resources/images/bg.jpg" class="image"/>
 	  <div class="vsTitle">

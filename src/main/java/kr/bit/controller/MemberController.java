@@ -123,8 +123,6 @@ public class MemberController {
 	   return "member/memLoginForm"; 
 		
     }
-    
-   
  	
  	// 사진등록 페이지
  	@RequestMapping("/memImageForm.do")

@@ -24,7 +24,7 @@ public class BoardController{
 	
 	@Autowired
 	BoardService boardService;
-	
+	// 게시글 보기
 	@RequestMapping("/list.do")
 	public String getList(Criteria cri, Model model) {
 		List<Board> list=boardService.getList(cri);
@@ -37,18 +37,19 @@ public class BoardController{
 		return "board/list"; 
  	}
 	
-	
+	// 게시글 등록페이지
 	@RequestMapping("/registerForm.do")
 	public String registerForm() {
 		return "board/register";
 	}
-	
+	// 게시글 등록
 	@RequestMapping("/register.do")
 	public String register(Board vo) {
 		boardService.register(vo);
 		return "redirect:/board/list.do";
 	}
 	
+	// 상세보기
 	@RequestMapping("/get.do")
 	public String getForm(@RequestParam("idx") int idx, Criteria cri, Model model) {
 		Board vo = boardService.get(idx);
@@ -58,7 +59,7 @@ public class BoardController{
 		return "board/get";
 		
 	}
-	
+	// 메인페이지 게시판 상세보기
 	@RequestMapping("/IndexGet.do")
 	public String IndexGetForm(@RequestParam("idx") int idx,  Model model) {
 		Board vo = boardService.get(idx);
@@ -66,7 +67,7 @@ public class BoardController{
 		return "board/get";
 		
 	}
-	
+	// 게시글 수정페이지
 	@RequestMapping("/modifyForm.do")
 	public String modifyForm(@RequestParam("idx") int idx, Criteria cri, Model model) {
 		Board vo = boardService.get(idx);
@@ -75,14 +76,14 @@ public class BoardController{
 		return "board/modify";
 		
 	}
-	
+	// 게시글 수정
 	@RequestMapping("/modify.do")
 	public String modify(Board board) {
 		boardService.modify(board);
 		
 		return "redirect:/board/list.do";
 	}
-	
+	// 게시글 삭제
 	@RequestMapping("/remove.do")
 	public String remove(@RequestParam("idx") int idx, Criteria cri, RedirectAttributes rttr) {
 		boardService.remove(idx);
@@ -91,7 +92,7 @@ public class BoardController{
 		
 		return "redirect:/board/list.do";
 	}
-	
+	// 답글 페이지
 	@RequestMapping("/replyForm.do")
 	public String replyForm(@RequestParam("idx") int idx, Model model, Criteria cri) {
 		Board vo = boardService.get(idx);
@@ -101,7 +102,7 @@ public class BoardController{
 		return "board/reply";
 		
 	}
-	
+	// 답글처리
 	@RequestMapping("/reply.do")
 	public String reply(Board vo, Criteria cri, RedirectAttributes rttr) {
 		boardService.replyProcess(vo);
