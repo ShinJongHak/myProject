@@ -66,7 +66,6 @@
 	      <a class="nav-link" href="javascript:logout()">
 	      <i class="bi bi-box-arrow-left"></i> 로그아웃</a>
 	    </li>
-	    
 	  </ul>
 	</c:if>		
   </div>

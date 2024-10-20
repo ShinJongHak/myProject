@@ -25,17 +25,17 @@
     	$("#regBtn").on("click", function(){
     		location.href="${contextPath}/board/registerForm.do";
     	}); 
-    	//페이지 번호 클릭시 이동 하기
+    	//페이지 번호 클릭시 이동
     	var pageFrm=$("#pageFrm");
     	$(".paginate_button a").on("click", function(e){
-    		e.preventDefault(); // a tag의 기능을 막는 부분
+    		e.preventDefault(); 
     		var page=$(this).attr("href"); // 페이지번호
     		pageFrm.find("#page").val(page);
-    		pageFrm.submit(); // /sp08/board/list   		
+    		pageFrm.submit(); 	
     	});    	
-    	// 상세보기 클릭시 이동 하기
+    	// 상세보기 클릭시 이동
     	$(".move").on("click", function(e){
-    		e.preventDefault(); // a tag의 기능을 막는 부분
+    		e.preventDefault(); 
     		var idx=$(this).attr("href");
     		var tag="<input type='hidden' name='idx' value='"+idx+"'/>";
     		pageFrm.append(tag);
@@ -45,18 +45,9 @@
     	});
     	
      });
-     function checkModal(result){
-    	 if(result==''){
-    		 return;
-    	 }    	 
-    	 if(parseInt(result)>0){
-    		 // 새로운 다이얼로그 창 띄우기
-    		 $(".modal-body").html("게시글 "+parseInt(result)+"번이 등록되었습니다.");    		 
-    	 }
-    	 $("#myModal").modal("show");
-     }
+     
      function goMsg(){
-    	 alert("삭제된 게시물입니다."); // Modal창
+    	 alert("삭제된 게시물입니다."); 
      }
   </script>
 </head>

@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,7 @@
       			alert("책 제목을 입력하세요");
       			return false;
       		}
-      		// Kakao 책 검색 openAPI를 연동(키를발급)
+      		// Kakao 책 검색 openAPI를 연동
       		$.ajax({
       			url : "https://dapi.kakao.com/v3/search/book?target=title",
       			headers : {"Authorization": "KakaoAK 279534ec8584453f1bdfbfdc19962134"},
