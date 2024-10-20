@@ -19,8 +19,6 @@
   <link rel="stylesheet" href="${contextPath}/resources/css/main.css" >
   <script type="text/javascript">
      $(document).ready(function(){
-    	var result='${result}'; 
-    	checkModal(result); 
     	 
     	$("#regBtn").on("click", function(){
     		location.href="${contextPath}/board/registerForm.do";
