@@ -19,7 +19,6 @@
  <script type="text/javascript">
     $(document).ready(function(){
     	if(${!empty msgType}){
-     		$("#messageType").attr("class", "modal-content panel-warning");    
     		$("#myMessage").modal("show");
     	}
     });
@@ -163,7 +162,7 @@
 	
 	      <!-- Modal body -->
 	      <div class="modal-body">
-	        <p id="checkMessage">${msg}</p>
+	        <p>${msg}</p>
 	      </div>
 	
 	      <!-- Modal footer -->

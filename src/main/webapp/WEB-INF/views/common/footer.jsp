@@ -7,8 +7,8 @@
 </head>    
 
 <footer class="py-5 bg-dark">
-  <p class="m-3 text-white"><a href="https://github.com/ShinJongHak/myProject/tree/master">GitHub</a></p>
-  <p class="m-3 text-white">저자 : 신종학</p>
-  <p class="m-3 text-white">이메일 : mskybluem@daum.net</p>
-  <p class="m-3 text-white">Copyright 2020. cocoder. All Rights Reserved.</p>
+  <p class="m-3 text-white footer_Text"><a href="https://github.com/ShinJongHak/myProject/tree/master">GitHub</a></p>
+  <p class="m-3 text-white footer_Text">저자 : 신종학</p>
+  <p class="m-3 text-white footer_Text">이메일 : mskybluem@daum.net</p>
+  <p class="m-3 text-white footer_Text">Copyright 2024. mskybluem. All Rights Reserved.</p>
 </footer>

@@ -13,12 +13,12 @@ import lombok.Data;
 @Data
 public class MemberUser extends User{ 
 
-	private Member member;
-	
-	public MemberUser(Member mvo) {
-        super(mvo.getMemID(), mvo.getMemPassword(), mvo.getAuthList().stream()
-       	      .map(auth->new SimpleGrantedAuthority(auth.getAuth())).
-       	      collect(Collectors.toList()));
-        this.member=mvo; 	
-    }
+   private Member member;
+
+   public MemberUser(Member mvo) {
+       super(mvo.getMemID(), mvo.getMemPassword(), mvo.getAuthList().stream()
+   	         .map(auth->new SimpleGrantedAuthority(auth.getAuth())).
+   	         collect(Collectors.toList()));
+       this.member=mvo; 	
+}
 }

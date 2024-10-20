@@ -10,12 +10,12 @@ import kr.bit.entity.AuthVO;
 import kr.bit.entity.Board;
 import kr.bit.entity.Member;
 
-@Mapper //- Mybatis API
+@Mapper 
 public interface MemberMapper {	 
 	public Member registerCheck(String memID);
-	public int register(Member m); //회원등록( 성공1, 실패0 )
-	public Member memLogin(String username); // 로그인체크
-	public int memUpdate(Member mvo); // 수정하기
+	public int register(Member m); 
+	public Member memLogin(String username); 
+	public int memUpdate(Member mvo); 
 	public Member getMember(String memID);
 	public void memProfileUpdate(Member mvo);
 	public void authInsert(AuthVO authVO);

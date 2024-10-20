@@ -27,7 +27,7 @@
     	   data : { "memID" : memID},
     	   success : function(result){
     		   if(result==1){
-    			  $("#checkMessage").html("사용할 수 있는 아이디입니다.");
+    	          $("#checkMessage").html("사용할 수 있는 아이디입니다.");
     		   }else{
     			  $("#checkMessage").html("사용할 수 없는 아이디입니다."); 
     		   }
@@ -132,60 +132,57 @@
   </div>
 </div>
   
-  <footer>
-	 <jsp:include page="../common/footer.jsp"></jsp:include>
-  </footer>
+<footer>
+   <jsp:include page="../common/footer.jsp"></jsp:include>
+</footer>
   
-	<!--  다이얼로그창(모달) -->
-	<!-- Modal -->
-	 <div class="modal" id="myModal">
-	  <div class="modal-dialog">
-	    <div id="checkType" class="modal-content">
-	
-	      <!-- Modal Header -->
-	      <div  class="modal-header panel-heading">
-	        <h4 class="modal-title">메시지 확인</h4>
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	      </div>
-	
-	      <!-- Modal body -->
-	      <div class="modal-body">
-	        <p id="checkMessage"></p>
-	      </div>
-	
-	      <!-- Modal footer -->
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-	
-	<!-- Modal 실패메시지 -->
-	 <div class="modal" id="myMessage">
-	  <div class="modal-dialog">
-	    <div id="checkType" class="modal-content">
-	
-	      <!-- Modal Header -->
-	      <div  class="modal-header panel-heading">
-	        <h4 class="modal-title">${msgType}</h4>
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	      </div>
-	
-	      <!-- Modal body -->
-	      <div class="modal-body">
-	        <p id="checkMessage">${msg}</p>
-	      </div>
-	
-	      <!-- Modal footer -->
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-	
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
     
-	
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">메시지 확인</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p id="checkMessage"></p>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+      
+    </div>
+  </div>
+</div>    
+
+<!-- Modal 실패메시지 -->
+<div class="modal" id="myMessage">
+  <div class="modal-dialog">
+    <div id="checkType" class="modal-content">
+
+      <!-- Modal Header -->
+      <div  class="modal-header panel-heading">
+        <h4 class="modal-title">${msgType}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>${msg}</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

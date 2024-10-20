@@ -75,7 +75,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <p id="checkMessage">${msg}</p>
+        <p>${msg}</p>
       </div>
 
       <!-- Modal footer -->

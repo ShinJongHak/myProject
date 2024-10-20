@@ -24,6 +24,7 @@ public class BoardController{
 	
 	@Autowired
 	BoardService boardService;
+	
 	// 게시글 보기
 	@RequestMapping("/list.do")
 	public String getList(Criteria cri, Model model) {

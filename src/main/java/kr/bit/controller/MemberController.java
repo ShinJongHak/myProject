@@ -72,16 +72,16 @@ public class MemberController {
 		   m.getMemEmail()==null || m.getMemEmail().equals("")) {
 		   rttr.addFlashAttribute("msgType", "실패 메세지");
 		   rttr.addFlashAttribute("msg", "모든 내용을 입력하세요.");
-		   return "redirect:/memJoin.do";  
+		   return "redirect:/member/memJoinForm.do";  
 		}
 		if(!memPassword1.equals(memPassword2)) {
 		   rttr.addFlashAttribute("msgType", "실패 메세지");
 		   rttr.addFlashAttribute("msg", "비밀번호가 서로 다릅니다.");
-		   return "redirect:/memJoin.do";  
+		   return "redirect:/member/memJoinForm.do";  
 		}		
 		m.setMemProfile(""); // 사진이미지는 없다는 의미
 		
-		// 비밀번호를 암호화 하기(API)
+		// 비밀번호를 암호화 
 	    String encyptPw=pwEncoder.encode(m.getMemPassword());
 	    m.setMemPassword(encyptPw);
 		
@@ -116,7 +116,7 @@ public class MemberController {
 			return "redirect:/memLoginForm.do";
 	}
     
-	// 로그인 화면으로 이동(스프링시큐리티)
+	// 로그인 화면(스프링시큐리티)
     @RequestMapping("/memLoginForm.do")
 	public String memLoginForm() {
     	
