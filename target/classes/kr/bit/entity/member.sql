@@ -5,7 +5,7 @@ create table member(
 	 memName varchar(20) not null,
 	 memAge int,
 	 memGender varchar(20),
-	 memEmail varchar(50),
+	 memEmail varchar(50) unique,
 	 memProfile varchar(50),
 	 primary key(memID)
  );

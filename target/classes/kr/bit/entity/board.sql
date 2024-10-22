@@ -1,5 +1,5 @@
 create table Board(
-	idx int not null,
+	idx int,
 	memID varchar(20) not null,  
 	title varchar(100) not null,
 	content varchar(2000) not null,

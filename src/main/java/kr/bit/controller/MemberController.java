@@ -105,13 +105,13 @@ public class MemberController {
 			    rttr.addFlashAttribute("msg", "회원가입에 성공했습니다.");
 				Member mvo=memberService.getMember(m.getMemID());
 				session.setAttribute("mvo", mvo);
-				return "redirect:/";
+				return "redirect:/member/memLoginForm.do";
 			 }
 			}
 			catch(DuplicateKeyException e){
 				 rttr.addFlashAttribute("msgType", "실패 메세지");
 				 rttr.addFlashAttribute("msg", "이미 존재하는 회원입니다.");
-				 return "redirect:/member/memJoin.do";
+				 return "redirect:/member/memJoinForm.do";
 			}
 			return "redirect:/memLoginForm.do";
 	}
@@ -140,7 +140,7 @@ public class MemberController {
  	// 회원정보수정
  	@RequestMapping("/memUpdate.do")
  	public String memUpdate(Member m, RedirectAttributes rttr,
- 			String memPassword1, String memPassword2, HttpSession session) {
+ 			String memPassword1, String memPassword2) {
  		if(m.getMemID()==null || m.getMemID().equals("") ||
  		   memPassword1==null || memPassword1.equals("") ||
  		   memPassword2==null || memPassword2.equals("") ||

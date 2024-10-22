@@ -21,6 +21,10 @@
 	   		$(".modal-title").text("실패 메시지");
 	  		$("#myMessage").modal("show");
 		}
+	  
+	  if(${!empty msgType}){
+  		$("#myMessage").modal("show");
+  	}
   });
   </script>
 </head>
