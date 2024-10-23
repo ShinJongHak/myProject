@@ -1,6 +1,6 @@
 create table member(
 	 memIdx int not null, 
-	 memID varchar(20) not null,  
+	 memID varchar(20),  
 	 memPassword varchar(68) not null,
 	 memName varchar(20) not null,
 	 memAge int,
