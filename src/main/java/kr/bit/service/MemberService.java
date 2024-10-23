@@ -6,6 +6,7 @@ import kr.bit.entity.Member;
 public interface MemberService {
 	
 	public Member registerCheck(String memID);
+	public int emailCheck(Member m);
 	public int register(Member m);
 	public Member memLogin(String username);
 	public Member getMember(String memID);

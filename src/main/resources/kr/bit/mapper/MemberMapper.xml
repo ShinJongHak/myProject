@@ -27,6 +27,10 @@
      select * from member where memID=#{memID}
   </select>
   
+  <select id="emailCheck" resultType="Integer">
+     select * from member where memEmail=#{memEmail}
+  </select>
+  
   <insert id="register" parameterType="kr.bit.entity.Member">
       insert into
       member(memIdx,memID,memPassword,memName,memAge,memGender,memEmail,memProfile)

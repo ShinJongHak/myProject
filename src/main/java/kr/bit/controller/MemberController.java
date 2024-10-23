@@ -109,8 +109,15 @@ public class MemberController {
 			 }
 			}
 			catch(DuplicateKeyException e){
+				 int emailCheck = memberService.emailCheck(m);
+				 
 				 rttr.addFlashAttribute("msgType", "실패 메세지");
 				 rttr.addFlashAttribute("msg", "이미 존재하는 회원입니다.");
+				 
+				 if(emailCheck == 1) {
+					 rttr.addFlashAttribute("msgType", "실패 메세지");
+					 rttr.addFlashAttribute("msg", "이미 존재하는 이메일입니다.");
+				 }
 				 return "redirect:/member/memJoinForm.do";
 			}
 			return "redirect:/memLoginForm.do";

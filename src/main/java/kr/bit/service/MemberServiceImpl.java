@@ -60,4 +60,10 @@ public class MemberServiceImpl implements MemberService{
 		
 	}
 
+	@Override
+	public int emailCheck(Member m) {
+		int emailCheck= memberMapper.emailCheck(m);
+		return emailCheck;
+	}
+
 }
