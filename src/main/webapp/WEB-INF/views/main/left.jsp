@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>  
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <c:set var="mvo" value="${SPRING_SECURITY_CONTEXT.authentication.principal}"/> 
 <c:set var="auth" value="${SPRING_SECURITY_CONTEXT.authentication.authorities}"/> 
@@ -40,13 +41,13 @@
 			 <span class="jua-regular">( </span>
 			 
 			 <security:authorize access="hasRole('ROLE_USER')"> 
-			    <span class="jua-regular">  U,</span>
+			    <span class="jua-regular">  U </span>
 			 </security:authorize> 
-			  <security:authorize access="hasRole('ROLE_MANAGER')"> 
-			    <span class="jua-regular">  M,</span>
+			 <security:authorize access="hasRole('ROLE_MANAGER')"> 
+			    <span class="jua-regular">  M </span>
 			 </security:authorize>  
 			 <security:authorize access="hasRole('ROLE_ADMIN')">
-			    <span class="jua-regular">  A</span>
+			    <span class="jua-regular">  A </span>
 			 </security:authorize>
 			 
 			 <span class="jua-regular"> )</span>

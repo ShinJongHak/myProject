@@ -34,7 +34,7 @@ import kr.bit.security.MemberUserDetailsService;
 public class MemberController {
 	
 	@Autowired
-	public MemberService memberService;
+	MemberService memberService;
 	
 	@Autowired 
 	PasswordEncoder pwEncoder;
@@ -103,8 +103,7 @@ public class MemberController {
 					   
 				rttr.addFlashAttribute("msgType", "성공 메세지");
 			    rttr.addFlashAttribute("msg", "회원가입에 성공했습니다.");
-				Member mvo=memberService.getMember(m.getMemID());
-				session.setAttribute("mvo", mvo);
+				
 				return "redirect:/member/memLoginForm.do";
 			 }
 			}
@@ -184,7 +183,7 @@ public class MemberController {
             }
  		   rttr.addFlashAttribute("msgType", "성공 메세지");
  		   rttr.addFlashAttribute("msg", "회원정보 수정에 성공했습니다.");
- 		  // 회원수정이 성공하면=>로그인처리하기
+ 		   
 		   Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		   MemberUser userAccount = (MemberUser) authentication.getPrincipal();
 		   SecurityContextHolder.getContext().setAuthentication(createNewAuthentication(authentication,userAccount.getMember().getMemID()));
