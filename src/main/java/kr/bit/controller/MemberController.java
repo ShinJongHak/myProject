@@ -62,7 +62,7 @@ public class MemberController {
 	// 회원가입 처리
 	@RequestMapping("/memRegister.do")
 	public String memRegister(Member m, String memPassword1, String memPassword2,
-			                  RedirectAttributes rttr, HttpSession session) {
+			                  RedirectAttributes rttr) {
 		if(m.getMemID()==null || m.getMemID().equals("") ||
 		   memPassword1==null || memPassword1.equals("") ||
 		   memPassword2==null || memPassword2.equals("") ||
@@ -196,7 +196,7 @@ public class MemberController {
  	}
  	
  	
-	// 회원사진 이미지 업로드(upload, DB저장)
+	// 회원사진 이미지 업로드
 	@RequestMapping("/memImageUpdate.do")
 	public String memImageUpdate(HttpServletRequest request,HttpSession session, RedirectAttributes rttr) throws IOException {
 		// 파일업로드 API(cos.jar, 3가지)
