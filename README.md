@@ -26,3 +26,4 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 *회원정보 수정 <br><br>
 <img src="https://github.com/user-attachments/assets/2c0cc472-5f2b-47d9-b0dc-323c661442a7" width="700" height="300"/>
 <img src="https://github.com/user-attachments/assets/7d8d7b23-3ac2-497f-bfc2-7bdd1a93177d" width="700" height="300"/>
+권한을 추가했습니다.
