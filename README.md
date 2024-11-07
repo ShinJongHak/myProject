@@ -60,7 +60,7 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 
 
 <h3>● 게시글 등록</h3>
-<img src="https://github.com/user-attachments/assets/c0ebfb76-94fa-41fa-87f6-fbe0b8e13ced" width="700" height="300"/>
+<img src="https://github.com/user-attachments/assets/3e3e3e65-8ea4-467c-bc43-964634589b0d" width="700" height="300"/>
 <br>
 <br>
 <br>
