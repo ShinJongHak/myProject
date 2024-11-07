@@ -7,6 +7,7 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <br>
 <br>
 <br>
+<br>
 
 
 * 회원가입 성공시
@@ -15,10 +16,12 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <br>
 <br>
 <br>
+<br>
 
 * 로그인
 <img src="https://github.com/user-attachments/assets/ccbccce5-10c2-4970-8b42-a06bd547d108" width="700" height="300"/>
 <img src="https://github.com/user-attachments/assets/42b30e06-446a-43a1-9258-edd7e7e7d539" width="700" height="300"/>
+<br>
 <br>
 <br>
 <br>
@@ -30,8 +33,8 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <br>
 <br>
 <br>
-
-* 프로필 등록 <br>
 <br>
+
+* 프로필 등록 <br><br>
 <img src="https://github.com/user-attachments/assets/0cf15983-60fb-4d71-a6db-3542404d869a" width="700" height="300"/>
 <img src="https://github.com/user-attachments/assets/b07ffa9c-fcd1-432c-8f8f-5f988bec4a81" width="700" height="300"/>
