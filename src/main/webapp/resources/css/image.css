@@ -11,23 +11,23 @@
 	}
 
 	.vsTitle{
-		position: absolute;
-		text-align:center;
-		top: 50px;
-		left:500px;
-		color: white;
+	   position: absolute;
+	   text-align:center;
+	   top: 50px;
+	   left:500px;
+	   color: white;
 	}
 	
 	.mainTitle {
-		font-size: 5rem;
+	   font-size: 5rem;
 	}
 	
 	.subTitle {
-		margin-top: 30px;
+	   margin-top: 30px;
 	}
 	
 	.logo {
-		width: 35px;
-		height: 35px;
+	   width: 35px;
+	   height: 35px;
 	}
 	
