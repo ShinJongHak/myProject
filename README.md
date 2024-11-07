@@ -101,4 +101,4 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 
 <h3>● 게시글 검색</h3>
 <img src="https://github.com/user-attachments/assets/9dbe83c5-6dfb-4736-ba64-936a252eea24" width="800" height="400"/> 
-
+<img src="https://github.com/user-attachments/assets/b3abb322-9e9c-494a-9b03-aa69e93253c4" width="800" height="400"/> 
