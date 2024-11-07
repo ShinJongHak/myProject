@@ -3,8 +3,9 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 
 * 회원 중복확인 기능 구현
 
-<img src="https://github.com/user-attachments/assets/0f7013e8-5b14-45cf-98cf-06506c2735e8" width="900" height="500"/>  <br>
-ajax를 이용해 중복확인 기능을 구현했습니다.
+<img src="https://github.com/user-attachments/assets/0f7013e8-5b14-45cf-98cf-06506c2735e8" width="900" height="500"/> 
+ <br>
+ <br>
  <br>
 
 
