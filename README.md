@@ -46,6 +46,19 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 
 <h1>게시판 구현</h1>
 <img src="https://github.com/user-attachments/assets/fee62966-942d-46fa-801c-8135406eed238" width="700" height="300"/>
+<br>
+<br>
+<br>
+<br>
 
-<h3>● 게시판 등록 화면</h3> <br>
+<h3>● 게시판 등록 화면</h3>
 <img src="https://github.com/user-attachments/assets/c0ebfb76-94fa-41fa-87f6-fbe0b8e13ced" width="700" height="300"/>
+<br>
+<br>
+<br>
+<br>
+
+
+<h3>● 게시판 등록</h3>
+<img src="https://github.com/user-attachments/assets/da2748cf-929d-4911-aba2-175df7a722db" width="700" height="300"/>
+
