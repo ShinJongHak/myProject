@@ -9,4 +9,4 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 
 
 <img src="https://github.com/user-attachments/assets/2f95c5ce-a951-4cdb-9104-32336e1b8bb3" width="450" height="300"/>
-<img src="https://github.com/user-attachments/assets/2bd1cff8-55f7-447f-9ba7-c77e3e194f8b" width="450" height="300"/>
+<img src="https://github.com/user-attachments/assets/1a544800-4b9c-4810-8b7b-b049e966ac88" width="450" height="300"/>
