@@ -38,3 +38,5 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 * 프로필 등록 <br>
 <img src="https://github.com/user-attachments/assets/0cf15983-60fb-4d71-a6db-3542404d869a" width="700" height="300"/>
 <img src="https://github.com/user-attachments/assets/b07ffa9c-fcd1-432c-8f8f-5f988bec4a81" width="700" height="300"/>
+
+<h1>게시판 구현</h1>
