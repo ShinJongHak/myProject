@@ -12,3 +12,7 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 * 회원가입 성공시
 <img src="https://github.com/user-attachments/assets/2f95c5ce-a951-4cdb-9104-32336e1b8bb3" width="500" height="300"/>
 <img src="https://github.com/user-attachments/assets/1a544800-4b9c-4810-8b7b-b049e966ac88" width="800" height="300"/>
+
+
+* 로그인
+<img src="https://github.com/user-attachments/assets/ccbccce5-10c2-4970-8b42-a06bd547d108" width="800" height="300"/>
