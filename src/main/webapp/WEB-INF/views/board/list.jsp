@@ -146,7 +146,7 @@
 	      <input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		  <div class="form-group">	
 		    <select name="type" class="form-control">
-		      <option value="writer" ${pageMaker.cri.type=='writer' ? 'selected' : ''}>이름</option>
+		      <option value="writer" ${pageMaker.cri.type=='writer' ? 'selected' : ''}>작성자</option>
 		      <option value="title" ${pageMaker.cri.type=='title' ? 'selected' : ''}>제목</option>
 		      <option value="content" ${pageMaker.cri.type=='content' ? 'selected' : ''}>내용</option>
 		    </select>

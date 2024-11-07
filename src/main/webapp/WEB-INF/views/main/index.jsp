@@ -140,10 +140,10 @@
 </header>
 <div class="card main">
 	<div class="visual">
-	  <img alt="img" src="${contextPath}/resources/images/bg.jpg" class="image"/>
+	  
 	  <div class="vsTitle">
 	    <h1 class="jua-regular mainTitle">MyHome</h1>
-	    <p class="jua-regular subTitle">Spring, mybatis(HicariCP), JSP, jQuery, ajax,  jstl, SpringSecurity 사용</p>
+	    <p class="jua-regular subTitle">MyHome홈페이지에 오신걸 환영합니다.<br></p>
 	  </div>
 	</div>
   	<div class="card-body">

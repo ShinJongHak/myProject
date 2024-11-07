@@ -14,7 +14,7 @@ public class Criteria {
 		this.page=1;
 		this.perPageNum=5;   
   }
-  // 현재 페이지의 게시글의 시작번호
+	// 현재 페이지의 게시글의 시작번호
 	public int getPageStart() {     
 		return (page-1)*perPageNum; 
   }  

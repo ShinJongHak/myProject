@@ -65,7 +65,7 @@
         </div>
         <div class="form-group">
            <label>작성자</label>
-           <input type="text" readonly="readonly" name="writer" class="form-control" value="${mvo.member.memName}">
+           <input type="text" readonly="readonly" name="writer" class="form-control" value="${mvo.member.memID}">
         </div>
         <button type="button" data-btn="reply" class="btn-primary btn-sm">답변</button>
         <button type="button" data-btn="reset" class="btn-primary btn-sm">취소</button>
