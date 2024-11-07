@@ -10,8 +10,7 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <br>
 <br>
 
-
-* 회원가입 성공시
+<h3>● 회원가입 성공시</h3>
 <img src="https://github.com/user-attachments/assets/2f95c5ce-a951-4cdb-9104-32336e1b8bb3" width="500" height="300"/>
 <img src="https://github.com/user-attachments/assets/1a544800-4b9c-4810-8b7b-b049e966ac88" width="850" height="300"/>
 <br>
@@ -19,7 +18,7 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <br>
 <br>
 
-* 로그인
+<h3>● 로그인</h3>
 <img src="https://github.com/user-attachments/assets/ccbccce5-10c2-4970-8b42-a06bd547d108" width="700" height="300"/>
 <img src="https://github.com/user-attachments/assets/42b30e06-446a-43a1-9258-edd7e7e7d539" width="700" height="300"/>
 <br>
@@ -27,7 +26,7 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <br>
 <br>
 
-* 회원정보 수정 <br>
+<h3>● 회원정보 수정</h3> <br>
 <img src="https://github.com/user-attachments/assets/2c0cc472-5f2b-47d9-b0dc-323c661442a7" width="700" height="300"/>
 <img src="https://github.com/user-attachments/assets/7d8d7b23-3ac2-497f-bfc2-7bdd1a93177d" width="700" height="300"/> <br>
 권한을 추가했습니다.
@@ -36,7 +35,7 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <br>
 <br>
 
-* 프로필 등록 <br>
+<h3>● 프로필 등록</h3> <br>
 <img src="https://github.com/user-attachments/assets/0cf15983-60fb-4d71-a6db-3542404d869a" width="700" height="300"/>
 <img src="https://github.com/user-attachments/assets/b07ffa9c-fcd1-432c-8f8f-5f988bec4a81" width="700" height="300"/>
 <br>
@@ -46,5 +45,7 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 
 
 <h1>게시판 구현</h1>
-
 <img src="https://github.com/user-attachments/assets/fee62966-942d-46fa-801c-8135406eed238" width="700" height="300"/>
+
+<h3>● 게시판 등록 화면</h3> <br>
+<img src="https://github.com/user-attachments/assets/c0ebfb76-94fa-41fa-87f6-fbe0b8e13ced" width="700" height="300"/>
