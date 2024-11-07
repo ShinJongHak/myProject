@@ -4,16 +4,21 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 * 회원 중복확인 기능 구현
 
 <img src="https://github.com/user-attachments/assets/0f7013e8-5b14-45cf-98cf-06506c2735e8" width="900" height="500"/> 
- <br>
- <br>
- <br>
+<br>
+<br>
+<br>
 
 
 * 회원가입 성공시
 <img src="https://github.com/user-attachments/assets/2f95c5ce-a951-4cdb-9104-32336e1b8bb3" width="500" height="300"/>
 <img src="https://github.com/user-attachments/assets/1a544800-4b9c-4810-8b7b-b049e966ac88" width="800" height="300"/>
-
+<br>
+<br>
+<br>
 
 * 로그인
 <img src="https://github.com/user-attachments/assets/ccbccce5-10c2-4970-8b42-a06bd547d108" width="700" height="300"/>
 <img src="https://github.com/user-attachments/assets/42b30e06-446a-43a1-9258-edd7e7e7d539" width="700" height="300"/>
+<br>
+<br>
+<br>
