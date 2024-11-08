@@ -113,7 +113,7 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <img src="https://github.com/user-attachments/assets/b9109805-9420-450b-a9c1-76a5b28c925c" width="800" height="400"/> 
 <img src="https://github.com/user-attachments/assets/cfc08d36-055f-4caf-a077-31fdcd641e6a" width="800" height="400"/> 
 
-회원이면서 자기 게시글이면 게시글 수정 가능하게 했고  
+<p>회원이면서 자기 게시글이면 게시글 수정 가능하게 했고  
 회원이면서 자기 게시글이 아니면 답글 버튼이 보이도록 했고
-비회원이면 상세보기만 가능하도록 했습니다.
+비회원이면 상세보기만 가능하도록 했습니다. </p>
 
