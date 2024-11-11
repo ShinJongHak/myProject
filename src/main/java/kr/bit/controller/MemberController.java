@@ -198,7 +198,7 @@ public class MemberController {
  	
 	// 회원 이미지 업로드
 	@RequestMapping("/memImageUpdate.do")
-	public String memImageUpdate(HttpServletRequest request,HttpSession session, RedirectAttributes rttr) throws IOException {
+	public String memImageUpdate(HttpServletRequest request, RedirectAttributes rttr) throws IOException {
 
 		MultipartRequest multi=null;
 		int fileMaxSize=10*1024*1024; 	 
