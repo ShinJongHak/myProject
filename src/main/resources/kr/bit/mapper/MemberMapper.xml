@@ -47,7 +47,8 @@
  
   <!-- 회원,권한 join -->
   <select id="getMember" resultMap="memberMap">
-     select * from member mem LEFT OUTER JOIN mem_auth auth 
+     select * 
+     from member mem LEFT OUTER JOIN mem_auth auth 
      on mem.memID=auth.memID 
      where mem.memID=#{memID}
   </select>  
@@ -63,7 +64,7 @@
   </update>
  
   <insert id="authInsert" parameterType="kr.bit.entity.AuthVO">
-     INSERT INTO mem_auth(memID, auth) values(#{memID}, #{auth})   
+     insert into mem_auth(memID, auth) values(#{memID}, #{auth})   
   </insert>
   
   <delete id="authDelete">

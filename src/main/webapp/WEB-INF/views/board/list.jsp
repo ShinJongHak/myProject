@@ -119,11 +119,13 @@
 	     <nav aria-label="Page navigation example">
 		    <ul class="pagination">
 		      <!-- 이전처리 -->
-		      <li class="page-item">
-		        <a class="page-link" href="#" aria-label="Previous">
-		          <span aria-hidden="true">&laquo;</span>
-		        </a>
+		      <c:if test="${pageMaker.prev}">
+		        <li class="page-item paginate_button">
+		          <a class="page-link" href="${pageMaker.startPage-1}" aria-label="Previous">
+		            <span aria-hidden="true">&laquo;</span>
+		          </a>
 		      </li>
+		      </c:if>
 		      
 		      <!-- 페이지번호 처리 -->
 		       <c:forEach var="pageNum" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
@@ -131,11 +133,13 @@
 		       </c:forEach> 
 		       
 		      <!-- 다음처리 -->
-		      <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Next">
-		          <span aria-hidden="true">&raquo;</span>
-		      </a>
-		      </li>
+		      <c:if test="${pageMaker.next}">
+		        <li class="page-item paginate_button">
+		          <a class="page-link" href="${pageMaker.endPage+1}" aria-label="Next">
+		            <span aria-hidden="true">&raquo;</span>
+		          </a>
+		        </li>
+		      </c:if>
 		    </ul>
 	     </nav>
 	  </div>
