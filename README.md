@@ -126,7 +126,7 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <br>
 
 <h3>● 페이징 처리</h3>
-<img src="https://github.com/user-attachments/assets/01a05b02-f4e2-45dc-a37f-54ae5154dccd" width="800" height="400"/> 
+<img src="https://github.com/user-attachments/assets/60967c2d-9e4d-41eb-8836-685f7a49b62f" width="800" height="400"/> 
 <img src="https://github.com/user-attachments/assets/6742cd0d-8662-4fd0-8c44-6059f867c082" width="800" height="400"/> 
 
 
