@@ -201,7 +201,7 @@ public class MemberController {
 	public String memImageUpdate(HttpServletRequest request,HttpSession session, RedirectAttributes rttr) throws IOException {
 
 		MultipartRequest multi=null;
-		int fileMaxSize=10*1024*1024; 	
+		int fileMaxSize=10*1024*1024; 	 
 		String savePath=request.getRealPath("resources/upload");
 		try {                                                                      
 			multi=new MultipartRequest(request, savePath, fileMaxSize, "UTF-8",new DefaultFileRenamePolicy());
