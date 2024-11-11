@@ -47,8 +47,9 @@
  
   <!-- 회원,권한 join -->
   <select id="getMember" resultMap="memberMap">
-     select * from member mem LEFT OUTER JOIN mem_auth auth on
-     mem.memID=auth.memID where mem.memID=#{memID}
+     select * from member mem LEFT OUTER JOIN mem_auth auth 
+     on mem.memID=auth.memID 
+     where mem.memID=#{memID}
   </select>  
  
   <update id="memUpdate" parameterType="kr.bit.entity.Member">
