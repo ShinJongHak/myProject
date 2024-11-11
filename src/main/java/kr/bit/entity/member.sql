@@ -19,3 +19,4 @@ create table member(
 	 constraint fk_member_auth foreign key(memID)
 	 references member(memID)
  );
+ 

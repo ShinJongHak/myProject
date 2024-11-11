@@ -167,7 +167,7 @@ public class MemberController {
  		String encyptPw=pwEncoder.encode(m.getMemPassword());
 		m.setMemPassword(encyptPw);
  		int result=memberService.memUpdate(m);
- 		if(result==1) { // 수정성공 메세지
+ 		if(result==1) { 
  		   // 기존권한을 삭제하고
  			memberService.authDelete(m.getMemID());
  			
@@ -196,15 +196,14 @@ public class MemberController {
  	}
  	
  	
-	// 회원사진 이미지 업로드
+	// 회원 이미지 업로드
 	@RequestMapping("/memImageUpdate.do")
 	public String memImageUpdate(HttpServletRequest request,HttpSession session, RedirectAttributes rttr) throws IOException {
-		// 파일업로드 API(cos.jar, 3가지)
+
 		MultipartRequest multi=null;
-		int fileMaxSize=40*1024*1024; 	
+		int fileMaxSize=10*1024*1024; 	
 		String savePath=request.getRealPath("resources/upload");
 		try {                                                                      
-			// 이미지 업로드
 			multi=new MultipartRequest(request, savePath, fileMaxSize, "UTF-8",new DefaultFileRenamePolicy());
 		
 		} catch (Exception e) {
@@ -218,9 +217,8 @@ public class MemberController {
 		String newProfile="";
 		File file=multi.getFile("memProfile");
 		if(file !=null) { // 업로드가 된상태(.png, .jpg, .gif)
-			// 이미파일 여부를 체크->이미지 파일이 아니면 삭제(1.png)
 			String ext=file.getName().substring(file.getName().lastIndexOf(".")+1);
-			ext=ext.toUpperCase(); // PNG, GIF, JPG
+			ext=ext.toUpperCase(); 
 			if(ext.equals("PNG") || ext.equals("GIF") || ext.equals("JPG")){
 				// 새로 업로드된이미지(new->1.PNG), 현재DB에 있는 이미지(old->4.PNG)
 				String oldProfile=memberService.getMember(memID).getMemProfile();

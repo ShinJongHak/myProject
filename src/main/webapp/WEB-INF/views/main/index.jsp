@@ -140,7 +140,6 @@
 </header>
 <div class="card main">
 	<div class="visual">
-	  
 	  <div class="vsTitle">
 	    <h1 class="jua-regular mainTitle">MyHome</h1>
 	    <p class="jua-regular subTitle">MyHome홈페이지에 오신걸 환영합니다.<br></p>
