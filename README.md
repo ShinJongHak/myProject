@@ -8,8 +8,10 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <img src="https://github.com/user-attachments/assets/0f7013e8-5b14-45cf-98cf-06506c2735e8" width="800" height="400"/> 
 <h5>■ 아이디가 중복일때</h5>
 <img src="https://github.com/user-attachments/assets/38326d8b-c119-414b-8c95-93f58a7c0134" width="800" height="400"/> 
-<h5>■ 비밀번호가 서로 다를때</h5>
+<h5>■ 비밀번호가 서로 일치하지 않을때</h5>
 <img src="https://github.com/user-attachments/assets/c05fc99a-d6e1-42c2-b6d8-7deeecd91f6e" width="800" height="400"/> 
+<h5>■ 이메일이 중복일때</h5>
+<img src="https://github.com/user-attachments/assets/fd3a54e6-af67-4f4e-abb7-c8b3bf959c7f" width="800" height="400"/> 
 <br>
 <br>
 <br>
