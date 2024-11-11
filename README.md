@@ -1,11 +1,17 @@
 <h1>홈페이지 설명</h1>
 Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리, 검색), 회원가입 구현, 로그인 구현 , 회원정보 수정 구현, 파일업로드 구현, Spring Security를 사용해서 csrf 토큰을 만들어서 검증하도록 했고 데이터베이스 연결은 HikariCP를 썼고 
-추가적으로 OpenAPI(지도검색, 책검색)를 사용했고 ForntEnd부분은 Bootstrap를 사용한 홈페이지입니다.
+추가적으로 OpenAPI(지도검색, 책검색)를 사용했고 FrontEnd부분은 Bootstrap를 사용한 홈페이지입니다.
 
 <h1>회원 서비스</h1>
-<h3>● 회원 중복확인 기능 구현</h3>
-
-<img src="https://github.com/user-attachments/assets/0f7013e8-5b14-45cf-98cf-06506c2735e8" width="900" height="500"/> 
+<h3>● 회원가입</h3>
+<h5>■ 아이디 사용가능</h5>
+<img src="https://github.com/user-attachments/assets/0f7013e8-5b14-45cf-98cf-06506c2735e8" width="800" height="400"/> 
+<h5>■ 아이디가 중복일때</h5>
+<img src="https://github.com/user-attachments/assets/38326d8b-c119-414b-8c95-93f58a7c0134" width="800" height="400"/> 
+<h5>■ 비밀번호가 서로 일치하지 않을때</h5>
+<img src="https://github.com/user-attachments/assets/c05fc99a-d6e1-42c2-b6d8-7deeecd91f6e" width="800" height="400"/> 
+<h5>■ 이메일이 중복일때</h5>
+<img src="https://github.com/user-attachments/assets/fd3a54e6-af67-4f4e-abb7-c8b3bf959c7f" width="800" height="400"/> 
 <br>
 <br>
 <br>
