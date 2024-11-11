@@ -3,10 +3,11 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 추가적으로 OpenAPI(지도검색, 책검색)를 사용했고 FrontEnd부분은 Bootstrap를 사용한 홈페이지입니다.
 
 <h1>회원 서비스</h1>
-<h3>● 회원 중복확인 기능 구현</h3>
+<h3>● 회원가입</h3>
 
 <img src="https://github.com/user-attachments/assets/0f7013e8-5b14-45cf-98cf-06506c2735e8" width="800" height="400"/> 
 <img src="https://github.com/user-attachments/assets/38326d8b-c119-414b-8c95-93f58a7c0134" width="800" height="400"/> 
+<img src="https://github.com/user-attachments/assets/c05fc99a-d6e1-42c2-b6d8-7deeecd91f6e" width="800" height="400"/> 
 <br>
 <br>
 <br>
