@@ -120,7 +120,15 @@ Spring, JSP,JSTL등을 이용한 게시판 구현(crud, 답글, 페이징 처리
 <h5>■ 회원이면서 나의 게시글 아닐때</h5>
 <img src="https://github.com/user-attachments/assets/b9109805-9420-450b-a9c1-76a5b28c925c" width="800" height="400"/> 
 <h5>■ 비회원 상태일때</h5>
-<img src="https://github.com/user-attachments/assets/cfc08d36-055f-4caf-a077-31fdcd641e6a" width="800" height="400"/> 
+<img src="https://github.com/user-attachments/assets/5ac7eddf-9026-4ced-b8c6-4ac70b9f37ab" width="800" height="400"/> 
+<br>
+<br>
+<br>
+<br>
+
+<h3>● 페이징 처리</h3>
+<img src="https://github.com/user-attachments/assets/60967c2d-9e4d-41eb-8836-685f7a49b62f" width="800" height="400"/> 
+<img src="https://github.com/user-attachments/assets/6806d40b-08f4-4f71-bc58-e800e5b9afd0" width="800" height="400"/> 
 
 
 
