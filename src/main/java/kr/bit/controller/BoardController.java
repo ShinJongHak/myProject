@@ -60,14 +60,7 @@ public class BoardController{
 		return "board/get";
 		
 	}
-	// 메인페이지 게시판 상세보기
-	@RequestMapping("/IndexGet.do")
-	public String IndexGetForm(@RequestParam("idx") int idx,  Model model) {
-		Board vo = boardService.get(idx);
-		model.addAttribute("vo", vo);
-		return "board/get";
-		
-	}
+	
 	// 게시글 수정페이지
 	@RequestMapping("/modifyForm.do")
 	public String modifyForm(@RequestParam("idx") int idx, Criteria cri, Model model) {
