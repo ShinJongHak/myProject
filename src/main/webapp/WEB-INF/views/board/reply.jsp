@@ -47,10 +47,10 @@
    <div class="card-header">답글화면</div>
    <div class="card-body">
       <form id="frm"  method="post">
-        <input type="hidden" name="page" value="<c:out value='${cri.page}'/>"/>
-        <input type="hidden" name="perPageNum" value="<c:out value='${cri.perPageNum}'/>"/>
-        <input type="hidden" name="type" value="<c:out value='${cri.type}'/>"/>
-        <input type="hidden" name="keyword" value="<c:out value='${cri.keyword}'/>"/>     
+        <input type="hidden" name="page" value="${cri.page}"/>
+        <input type="hidden" name="perPageNum" value="${cri.perPageNum}"/>
+        <input type="hidden" name="type" value="${cri.type}"/>
+        <input type="hidden" name="keyword" value="${cri.keyword}"/>     
         <!--  idx(원글,부모글) -->
         <input type="hidden" name="idx" value="${vo.idx}"/>
         <input type="hidden" name="memID" value="${mvo.member.memID}"/>
@@ -73,8 +73,8 @@
      </form>
        
      <form id="frm1" method="get">
-        <input type="hidden" name="page" value="<c:out value='${cri.page}'/>"/>
-        <input type="hidden" name="perPageNum" value="<c:out value='${cri.perPageNum}'/>"/>
+        <input type="hidden" name="page" value="${cri.page}"/>
+        <input type="hidden" name="perPageNum" value="${cri.perPageNum}"/>
         <input type="hidden" name="type" value="${cri.type}"/>
         <input type="hidden" name="keyword" value="${cri.keyword}"/>          
      </form>    

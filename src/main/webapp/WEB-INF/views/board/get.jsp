@@ -85,9 +85,9 @@
 	  		</tr>
 	  	</table>
 	    <form id="frm" method="get">
-          <input type="hidden" id="idx" name="idx" value="<c:out value='${vo.idx}'/>"/> 
-          <input type="hidden" name="page" value="<c:out value='${cri.page}'/>"/>
-          <input type="hidden" name="perPageNum" value="<c:out value='${cri.perPageNum}'/>"/>
+          <input type="hidden" id="idx" name="idx" value="${vo.idx}"/> 
+          <input type="hidden" name="page" value="${cri.page}"/>
+          <input type="hidden" name="perPageNum" value="${cri.perPageNum}"/>
           <input type="hidden" name="type" value="${cri.type}"/>
           <input type="hidden" name="keyword" value="${cri.keyword}"/>
         </form>

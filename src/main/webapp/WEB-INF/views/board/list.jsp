@@ -85,7 +85,7 @@
               </c:if>
               <c:if test="${vo.boardLevel>0}">
                 <c:if test="${vo.boardAvailable==1}">
-                 <a class="move" href="${vo.idx}"><c:out value='[RE]${vo.title}'/></a>
+                 <a class="move" href="${vo.idx}">[RE]${vo.title}</a>
                 </c:if>
                 <c:if test="${vo.boardAvailable==0}">
                  <a href="javascript:goMsg()">[RE]삭제된 게시물입니다.</a>
@@ -93,7 +93,7 @@
               </c:if>
               <c:if test="${vo.boardLevel==0}">
                 <c:if test="${vo.boardAvailable==1}">
-                  <a class="move" href="${vo.idx}"><c:out value='${vo.title}'/></a>
+                  <a class="move" href="${vo.idx}">${vo.title}</a>
                 </c:if>
                 <c:if test="${vo.boardAvailable==0}">
                   <a href="javascript:goMsg()">삭제된 게시물입니다.</a>
